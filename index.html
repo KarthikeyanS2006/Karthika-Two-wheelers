@@ -74,10 +74,10 @@ body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;over
 <div id="splash">
   <div class="vel-container">
     <!-- Left Vel -->
-    <img class="vel-splash vel-left-splash" src="https://img.freepik.com/premium-vector/vector-illustration-lord-murugan-spear-transparent-background_181203-35133.jpg" alt="Vel" onerror="this.style.display='none'">
+    <img class="vel-splash vel-left-splash" src="https://raw.githubusercontent.com/KarthikeyanS2006/Karthika-Two-wheelers/refs/heads/main/assets/img/vector-illustration-lord-murugan-spear-transparent-background_181203-35133-removebg-preview.png" alt="Vel" onerror="this.style.display='none'">
 
     <!-- Right Vel (mirrored) -->
-    <img class="vel-splash vel-right-splash" src="https://img.freepik.com/premium-vector/vector-illustration-lord-murugan-spear-transparent-background_181203-35133.jpg" alt="Vel" onerror="this.style.display='none'">
+    <img class="vel-splash vel-right-splash" src="https://raw.githubusercontent.com/KarthikeyanS2006/Karthika-Two-wheelers/refs/heads/main/assets/img/vector-illustration-lord-murugan-spear-transparent-background_181203-35133-removebg-preview.png" alt="Vel" onerror="this.style.display='none'">
 
     <!-- Center collision glow -->
     <div class="vel-center-glow">
@@ -141,17 +141,13 @@ body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;over
 })();
 </script>
 
-<!-- Hero Vel Decorations -->
-<img class="hero-vel-left" src="https://img.freepik.com/premium-vector/vector-illustration-lord-murugan-spear-transparent-background_181203-35133.jpg" alt="Vel">
-<img class="hero-vel-right" src="https://img.freepik.com/premium-vector/vector-illustration-lord-murugan-spear-transparent-background_181203-35133.jpg" alt="Vel">
-
 /* HERO VEL DECORATIONS */
-.hero-vel-left,.hero-vel-right{position:absolute;width:50px;height:auto;top:50%;transform:translateY(-50%);opacity:0.4;
+.hero-vel-left,.hero-vel-right{position:absolute;width:80px;height:auto;top:50%;transform:translateY(-50%);opacity:0.5;
   z-index:3;pointer-events:none;}
-.hero-vel-left{left:1%;}
-.hero-vel-right{right:1%;}
-@media(max-width:768px){.hero-vel-left,.hero-vel-right{width:30px;opacity:0.25;}}
-@media(max-width:480px){.hero-vel-left,.hero-vel-right{display:none;}}
+.hero-vel-left{left:2%;}
+.hero-vel-right{right:2%;}
+@media(max-width:768px){.hero-vel-left,.hero-vel-right{width:50px;opacity:0.4;}}
+@media(max-width:480px){.hero-vel-left,.hero-vel-right{width:35px;opacity:0.3;}}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;
@@ -172,7 +168,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:cen
 /* HERO */
 #hero{min-height:90vh;display:flex;flex-direction:column;align-items:center;
   justify-content:center;text-align:center;padding:100px 24px 60px;
-  position:relative;overflow:hidden;}
+  position:relative;overflow:hidden;
   background:linear-gradient(180deg,rgba(8,12,18,0.9) 0%,rgba(13,0,5,0.85) 40%,rgba(61,0,0,0.75) 70%,rgba(107,15,26,0.85) 100%),
   url('https://d35xcwcl37xo08.cloudfront.net/current-affairs-wp-uploads/2025/04/motogp.jpg') center/cover no-repeat fixed;}
 #hero::before{content:'';position:absolute;inset:0;
@@ -515,6 +511,10 @@ function googleTranslateElementInit() {
 <!-- HERO -->
 <section id="hero">
   <div class="hero-particles" id="prtcls"></div>
+  
+  <!-- Hero Vel Decorations -->
+  <img class="hero-vel-left" src="https://raw.githubusercontent.com/KarthikeyanS2006/Karthika-Two-wheelers/refs/heads/main/assets/img/vector-illustration-lord-murugan-spear-transparent-background_181203-35133-removebg-preview.png" alt="Vel">
+  <img class="hero-vel-right" src="https://raw.githubusercontent.com/KarthikeyanS2006/Karthika-Two-wheelers/refs/heads/main/assets/img/vector-illustration-lord-murugan-spear-transparent-background_181203-35133-removebg-preview.png" alt="Vel">
   
   <!-- Animated Motorcycle SVG -->
   <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);
