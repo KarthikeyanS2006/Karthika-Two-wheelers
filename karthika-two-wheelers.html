@@ -31,6 +31,199 @@ body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;over
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px;}
 
+/* SPLASH SCREEN */
+#splash{position:fixed;inset:0;z-index:99999;background:linear-gradient(180deg,#080C12,#3D0000,#080C12);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.splash-content{text-align:center;position:relative;z-index:5;}
+.vel-container{display:flex;align-items:center;justify-content:center;gap:0;position:relative;
+  height:300px;width:100%;max-width:800px;margin:0 auto;}
+.vel-left,.vel-right{position:absolute;width:180px;height:auto;opacity:0;top:50%;transform:translateY(-50%);}
+.vel-left{left:0;animation:velLeftMove 2.5s ease-in-out forwards;}
+.vel-right{right:0;transform:translateY(-50%) scaleX(-1);animation:velRightMove 2.5s ease-in-out forwards;}
+@keyframes velLeftMove{
+  0%{left:-200px;opacity:0;transform:translateY(-50%);}
+  20%{opacity:1;}
+  80%{opacity:1;}
+  100%{left:calc(50% - 120px);opacity:1;transform:translateY(-50%);}
+}
+@keyframes velRightMove{
+  0%{right:-200px;opacity:0;transform:translateY(-50%) scaleX(-1);}
+  20%{opacity:1;}
+  80%{opacity:1;}
+  100%{right:calc(50% - 120px);opacity:1;transform:translateY(-50%) scaleX(-1);}
+}
+.vel-center{position:absolute;left:50%;transform:translateX(-50%);opacity:0;
+  animation:velGlow 0.5s ease-out 2.3s forwards;z-index:10;}
+@keyframes velGlow{0%{opacity:0;transform:translateX(-50%) scale(0);}100%{opacity:1;transform:translateX(-50%) scale(1);}}
+.collision-particles{position:absolute;inset:0;pointer-events:none;z-index:20;}
+.spark{position:absolute;border-radius:50%;animation:sparkBurst 1.5s ease-out forwards;}
+@keyframes sparkBurst{0%{opacity:1;transform:translate(-50%,-50%) scale(0);}50%{opacity:1;}100%{opacity:0;transform:translate(-50%,-50%) scale(3);}}
+.flower-particle{position:absolute;animation:flowerFall 2s ease-out forwards;opacity:0;}
+@keyframes flowerFall{0%{opacity:0;transform:translateY(0) rotate(0deg) scale(0);}30%{opacity:1;}100%{opacity:0;transform:translateY(100px) rotate(360deg) scale(1);}}
+.splash-text{opacity:0;animation:fadeInUp 1s ease-out 3s forwards;margin-top:30px;}
+.splash-text h1{font-family:'Cinzel Decorative',serif;font-size:clamp(1.2rem,4vw,2rem);
+  background:linear-gradient(135deg,#fff,var(--gold-lt),#fff);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;letter-spacing:0.1em;}
+.splash-text p{color:var(--muted);font-size:0.8rem;margin-top:8px;letter-spacing:0.15em;}
+@keyframes fadeInUp{0%{opacity:0;transform:translateY(30px);}100%{opacity:1;transform:translateY(0);}}
+.page-enter{animation:pageReveal 1s ease-out 4s forwards;}
+@keyframes pageReveal{0%{opacity:0;}100%{opacity:1;}}
+</style>
+</head>
+<body>
+
+<!-- SPLASH SCREEN -->
+<div id="splash">
+  <div class="vel-container">
+    <!-- Left Vel -->
+    <svg class="vel-left" viewBox="0 0 60 280" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="velGoldL" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#8B6914"/>
+          <stop offset="50%" stop-color="#C9A84C"/>
+          <stop offset="100%" stop-color="#E8C97A"/>
+        </linearGradient>
+        <filter id="glowL"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <!-- Spear tip -->
+      <polygon points="30,5 15,55 30,45 45,55" fill="url(#velGoldL)" filter="url(#glowL)"/>
+      <polygon points="30,5 25,35 30,30 35,35" fill="#FFF8E7"/>
+      <!-- Spear shaft -->
+      <rect x="27" y="50" width="6" height="200" fill="url(#velGoldL)" rx="2"/>
+      <!-- Decorative rings -->
+      <ellipse cx="30" cy="60" rx="12" ry="4" fill="#C9A84C"/>
+      <ellipse cx="30" cy="80" rx="10" ry="3" fill="#C9A84C"/>
+      <ellipse cx="30" cy="120" rx="9" ry="3" fill="#C9A84C"/>
+      <ellipse cx="30" cy="160" rx="8" ry="2" fill="#C9A84C"/>
+      <!-- Peacock feather patterns -->
+      <circle cx="30" cy="100" r="8" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+      <circle cx="30" cy="140" r="7" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+      <!-- Bottom decoration -->
+      <ellipse cx="30" cy="250" rx="15" ry="5" fill="#C9A84C"/>
+      <rect x="25" y="245" width="10" height="15" fill="url(#velGoldL)" rx="2"/>
+    </svg>
+
+    <!-- Right Vel (mirrored via CSS) -->
+    <svg class="vel-right" viewBox="0 0 60 280" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="velGoldR" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#8B6914"/>
+          <stop offset="50%" stop-color="#C9A84C"/>
+          <stop offset="100%" stop-color="#E8C97A"/>
+        </linearGradient>
+        <filter id="glowR"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <polygon points="30,5 15,55 30,45 45,55" fill="url(#velGoldR)" filter="url(#glowR)"/>
+      <polygon points="30,5 25,35 30,30 35,35" fill="#FFF8E7"/>
+      <rect x="27" y="50" width="6" height="200" fill="url(#velGoldR)" rx="2"/>
+      <ellipse cx="30" cy="60" rx="12" ry="4" fill="#C9A84C"/>
+      <ellipse cx="30" cy="80" rx="10" ry="3" fill="#C9A84C"/>
+      <ellipse cx="30" cy="120" rx="9" ry="3" fill="#C9A84C"/>
+      <ellipse cx="30" cy="160" rx="8" ry="2" fill="#C9A84C"/>
+      <circle cx="30" cy="100" r="8" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+      <circle cx="30" cy="140" r="7" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+      <ellipse cx="30" cy="250" rx="15" ry="5" fill="#C9A84C"/>
+      <rect x="25" y="245" width="10" height="15" fill="url(#velGoldR)" rx="2"/>
+    </svg>
+
+    <!-- Center collision glow -->
+    <div class="vel-center">
+      <svg width="80" height="80" viewBox="0 0 80 80">
+        <defs>
+          <radialGradient id="centerGlow"><stop offset="0%" stop-color="#FFF8E7"/><stop offset="50%" stop-color="#C9A84C"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+        </defs>
+        <circle cx="40" cy="40" r="40" fill="url(#centerGlow)"/>
+        <circle cx="40" cy="40" r="20" fill="#FFF8E7" opacity="0.8"/>
+        <circle cx="40" cy="40" r="8" fill="#fff"/>
+      </svg>
+    </div>
+
+    <!-- Collision particles -->
+    <div class="collision-particles" id="collisionParticles"></div>
+  </div>
+
+  <div class="splash-text">
+    <h1>KARTHIKA TWO WHEELERS</h1>
+    <p>AUTO PARTS & ACCESSORIES</p>
+  </div>
+</div>
+
+<script>
+// Splash screen particle generation
+(function(){
+  var container=document.getElementById('collisionParticles');
+  var colors=['#C9A84C','#E8C97A','#FFF8E7','#FFD700','#FF6B35','#fff'];
+  for(var i=0;i<40;i++){
+    var spark=document.createElement('div');
+    spark.className='spark';
+    var size=3+Math.random()*8;
+    spark.style.cssText='width:'+size+'px;height:'+size+'px;';
+    spark.style.left='50%';
+    spark.style.top='50%';
+    var angle=Math.random()*360;
+    var dist=50+Math.random()*150;
+    var delay=2.3+Math.random()*0.5;
+    var x=Math.cos(angle*Math.PI/180)*dist;
+    var y=Math.sin(angle*Math.PI/180)*dist;
+    spark.style.background=colors[Math.floor(Math.random()*colors.length)];
+    spark.style.animation='sparkBurst 1.5s ease-out '+delay+'s forwards';
+    spark.style.setProperty('--tx',x+'px');
+    spark.style.setProperty('--ty',y+'px');
+    spark.animate([{transform:'translate(-50%,-50%) scale(0)',opacity:1},{transform:'translate(calc(-50% + '+x+'px),calc(-50% + '+y+'px)) scale(1)',opacity:0.5},{transform:'translate(calc(-50% + '+x+'px),calc(-50% + '+y+'px)) scale(0)',opacity:0}],{duration:1500,delay:delay*1000,easing:'ease-out',fill:'forwards'});
+    container.appendChild(spark);
+  }
+  // Flower particles
+  for(var j=0;j<20;j++){
+    var flower=document.createElement('div');
+    flower.className='flower-particle';
+    flower.innerHTML='&#10047;';
+    flower.style.cssText='font-size:'+(12+Math.random()*16)+'px;color:'+colors[Math.floor(Math.random()*colors.length)]+';left:'+(20+Math.random()*60)+'%;top:'+(20+Math.random()*60)+'%;animation-delay:'+(2.5+Math.random()*1)+'s;';
+    container.appendChild(flower);
+  }
+  // Remove splash after animation
+  setTimeout(function(){
+    var splash=document.getElementById('splash');
+    splash.style.transition='opacity 0.8s ease';
+    splash.style.opacity='0';
+    setTimeout(function(){splash.style.display='none';},800);
+  },5000);
+})();
+</script>
+
+<!-- Hero Vel Decorations -->
+<div class="hero-vel-left">
+  <svg viewBox="0 0 30 140" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="hgL" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#8B6914"/><stop offset="50%" stop-color="#C9A84C"/><stop offset="100%" stop-color="#E8C97A"/></linearGradient></defs>
+    <polygon points="15,3 8,28 15,23 22,28" fill="url(#hgL)"/>
+    <rect x="13" y="25" width="4" height="100" fill="url(#hgL)" rx="1"/>
+    <ellipse cx="15" cy="30" rx="6" ry="2" fill="#C9A84C"/>
+    <ellipse cx="15" cy="40" rx="5" ry="1.5" fill="#C9A84C"/>
+    <ellipse cx="15" cy="60" rx="4" ry="1.5" fill="#C9A84C"/>
+    <ellipse cx="15" cy="80" rx="4" ry="1" fill="#C9A84C"/>
+    <ellipse cx="15" cy="125" rx="7" ry="2.5" fill="#C9A84C"/>
+  </svg>
+</div>
+<div class="hero-vel-right">
+  <svg viewBox="0 0 30 140" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="hgR" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#8B6914"/><stop offset="50%" stop-color="#C9A84C"/><stop offset="100%" stop-color="#E8C97A"/></linearGradient></defs>
+    <polygon points="15,3 8,28 15,23 22,28" fill="url(#hgR)"/>
+    <rect x="13" y="25" width="4" height="100" fill="url(#hgR)" rx="1"/>
+    <ellipse cx="15" cy="30" rx="6" ry="2" fill="#C9A84C"/>
+    <ellipse cx="15" cy="40" rx="5" ry="1.5" fill="#C9A84C"/>
+    <ellipse cx="15" cy="60" rx="4" ry="1.5" fill="#C9A84C"/>
+    <ellipse cx="15" cy="80" rx="4" ry="1" fill="#C9A84C"/>
+    <ellipse cx="15" cy="125" rx="7" ry="2.5" fill="#C9A84C"/>
+  </svg>
+</div>
+
+/* HERO VEL DECORATIONS */
+.hero-vel-left,.hero-vel-right{position:absolute;width:40px;height:auto;top:50%;transform:translateY(-50%);opacity:0.5;
+  z-index:3;pointer-events:none;}
+.hero-vel-left{left:2%;}
+.hero-vel-right{right:2%;}
+@media(max-width:768px){.hero-vel-left,.hero-vel-right{width:22px;opacity:0.25;}}
+@media(max-width:480px){.hero-vel-left,.hero-vel-right{display:none;}}
+
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;
   justify-content:space-between;padding:12px 24px;
@@ -50,7 +243,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:cen
 /* HERO */
 #hero{min-height:90vh;display:flex;flex-direction:column;align-items:center;
   justify-content:center;text-align:center;padding:100px 24px 60px;
-  position:relative;overflow:hidden;
+  position:relative;overflow:hidden;}
   background:linear-gradient(180deg,rgba(8,12,18,0.9) 0%,rgba(13,0,5,0.85) 40%,rgba(61,0,0,0.75) 70%,rgba(107,15,26,0.85) 100%),
   url('https://d35xcwcl37xo08.cloudfront.net/current-affairs-wp-uploads/2025/04/motogp.jpg') center/cover no-repeat fixed;}
 #hero::before{content:'';position:absolute;inset:0;
