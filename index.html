@@ -33,40 +33,38 @@ body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;over
 
 /* SPLASH SCREEN */
 #splash{position:fixed;inset:0;z-index:99999;background:linear-gradient(180deg,#080C12,#3D0000,#080C12);
-  display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.splash-content{text-align:center;position:relative;z-index:5;}
+  display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;}
 .vel-container{display:flex;align-items:center;justify-content:center;gap:0;position:relative;
-  height:300px;width:100%;max-width:800px;margin:0 auto;}
-.vel-left,.vel-right{position:absolute;width:180px;height:auto;opacity:0;top:50%;transform:translateY(-50%);}
-.vel-left{left:0;animation:velLeftMove 2.5s ease-in-out forwards;}
-.vel-right{right:0;transform:translateY(-50%) scaleX(-1);animation:velRightMove 2.5s ease-in-out forwards;}
+  height:350px;width:100%;max-width:700px;margin:0 auto;}
+.vel-splash{position:absolute;height:320px;width:auto;opacity:0;top:50%;transform:translateY(-50%);}
+.vel-left-splash{left:-50px;animation:velLeftMove 2.5s cubic-bezier(0.25,0.46,0.45,0.94) forwards;}
+.vel-right-splash{right:-50px;transform:translateY(-50%) scaleX(-1);animation:velRightMove 2.5s cubic-bezier(0.25,0.46,0.45,0.94) forwards;}
 @keyframes velLeftMove{
-  0%{left:-200px;opacity:0;transform:translateY(-50%);}
-  20%{opacity:1;}
-  80%{opacity:1;}
-  100%{left:calc(50% - 120px);opacity:1;transform:translateY(-50%);}
+  0%{left:-250px;opacity:0;transform:translateY(-50%) rotate(-10deg);}
+  15%{opacity:1;}
+  85%{opacity:1;}
+  100%{left:calc(50% - 100px);opacity:1;transform:translateY(-50%) rotate(0deg);}
 }
 @keyframes velRightMove{
-  0%{right:-200px;opacity:0;transform:translateY(-50%) scaleX(-1);}
-  20%{opacity:1;}
-  80%{opacity:1;}
-  100%{right:calc(50% - 120px);opacity:1;transform:translateY(-50%) scaleX(-1);}
+  0%{right:-250px;opacity:0;transform:translateY(-50%) scaleX(-1) rotate(10deg);}
+  15%{opacity:1;}
+  85%{opacity:1;}
+  100%{right:calc(50% - 100px);opacity:1;transform:translateY(-50%) scaleX(-1) rotate(0deg);}
 }
-.vel-center{position:absolute;left:50%;transform:translateX(-50%);opacity:0;
-  animation:velGlow 0.5s ease-out 2.3s forwards;z-index:10;}
-@keyframes velGlow{0%{opacity:0;transform:translateX(-50%) scale(0);}100%{opacity:1;transform:translateX(-50%) scale(1);}}
+.vel-center-glow{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  opacity:0;animation:velGlow 0.8s ease-out 2.2s forwards;z-index:10;}
+@keyframes velGlow{0%{opacity:0;transform:translate(-50%,-50%) scale(0);}50%{opacity:1;}100%{opacity:0;transform:translate(-50%,-50%) scale(8);}}
 .collision-particles{position:absolute;inset:0;pointer-events:none;z-index:20;}
-.spark{position:absolute;border-radius:50%;animation:sparkBurst 1.5s ease-out forwards;}
-@keyframes sparkBurst{0%{opacity:1;transform:translate(-50%,-50%) scale(0);}50%{opacity:1;}100%{opacity:0;transform:translate(-50%,-50%) scale(3);}}
-.flower-particle{position:absolute;animation:flowerFall 2s ease-out forwards;opacity:0;}
-@keyframes flowerFall{0%{opacity:0;transform:translateY(0) rotate(0deg) scale(0);}30%{opacity:1;}100%{opacity:0;transform:translateY(100px) rotate(360deg) scale(1);}}
-.splash-text{opacity:0;animation:fadeInUp 1s ease-out 3s forwards;margin-top:30px;}
+.spark{position:absolute;border-radius:50%;opacity:0;}
+.flower-particle{position:absolute;opacity:0;}
+@keyframes flowerFall{0%{opacity:0;transform:translateY(0) rotate(0deg) scale(0);}30%{opacity:1;}100%{opacity:0;transform:translateY(80px) rotate(360deg) scale(1);}}
+.splash-text{opacity:0;animation:fadeInUp 1s ease-out 2.8s forwards;margin-top:40px;text-align:center;}
 .splash-text h1{font-family:'Cinzel Decorative',serif;font-size:clamp(1.2rem,4vw,2rem);
   background:linear-gradient(135deg,#fff,var(--gold-lt),#fff);-webkit-background-clip:text;
   -webkit-text-fill-color:transparent;letter-spacing:0.1em;}
 .splash-text p{color:var(--muted);font-size:0.8rem;margin-top:8px;letter-spacing:0.15em;}
 @keyframes fadeInUp{0%{opacity:0;transform:translateY(30px);}100%{opacity:1;transform:translateY(0);}}
-.page-enter{animation:pageReveal 1s ease-out 4s forwards;}
+.page-enter{animation:pageReveal 1s ease-out 4.5s forwards;}
 @keyframes pageReveal{0%{opacity:0;}100%{opacity:1;}}
 </style>
 </head>
@@ -76,65 +74,18 @@ body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;over
 <div id="splash">
   <div class="vel-container">
     <!-- Left Vel -->
-    <svg class="vel-left" viewBox="0 0 60 280" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="velGoldL" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#8B6914"/>
-          <stop offset="50%" stop-color="#C9A84C"/>
-          <stop offset="100%" stop-color="#E8C97A"/>
-        </linearGradient>
-        <filter id="glowL"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-      </defs>
-      <!-- Spear tip -->
-      <polygon points="30,5 15,55 30,45 45,55" fill="url(#velGoldL)" filter="url(#glowL)"/>
-      <polygon points="30,5 25,35 30,30 35,35" fill="#FFF8E7"/>
-      <!-- Spear shaft -->
-      <rect x="27" y="50" width="6" height="200" fill="url(#velGoldL)" rx="2"/>
-      <!-- Decorative rings -->
-      <ellipse cx="30" cy="60" rx="12" ry="4" fill="#C9A84C"/>
-      <ellipse cx="30" cy="80" rx="10" ry="3" fill="#C9A84C"/>
-      <ellipse cx="30" cy="120" rx="9" ry="3" fill="#C9A84C"/>
-      <ellipse cx="30" cy="160" rx="8" ry="2" fill="#C9A84C"/>
-      <!-- Peacock feather patterns -->
-      <circle cx="30" cy="100" r="8" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
-      <circle cx="30" cy="140" r="7" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
-      <!-- Bottom decoration -->
-      <ellipse cx="30" cy="250" rx="15" ry="5" fill="#C9A84C"/>
-      <rect x="25" y="245" width="10" height="15" fill="url(#velGoldL)" rx="2"/>
-    </svg>
+    <img class="vel-splash vel-left-splash" src="https://img.freepik.com/premium-vector/vector-illustration-lord-murugan-spear-transparent-background_181203-35133.jpg" alt="Vel" onerror="this.style.display='none'">
 
-    <!-- Right Vel (mirrored via CSS) -->
-    <svg class="vel-right" viewBox="0 0 60 280" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="velGoldR" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#8B6914"/>
-          <stop offset="50%" stop-color="#C9A84C"/>
-          <stop offset="100%" stop-color="#E8C97A"/>
-        </linearGradient>
-        <filter id="glowR"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-      </defs>
-      <polygon points="30,5 15,55 30,45 45,55" fill="url(#velGoldR)" filter="url(#glowR)"/>
-      <polygon points="30,5 25,35 30,30 35,35" fill="#FFF8E7"/>
-      <rect x="27" y="50" width="6" height="200" fill="url(#velGoldR)" rx="2"/>
-      <ellipse cx="30" cy="60" rx="12" ry="4" fill="#C9A84C"/>
-      <ellipse cx="30" cy="80" rx="10" ry="3" fill="#C9A84C"/>
-      <ellipse cx="30" cy="120" rx="9" ry="3" fill="#C9A84C"/>
-      <ellipse cx="30" cy="160" rx="8" ry="2" fill="#C9A84C"/>
-      <circle cx="30" cy="100" r="8" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
-      <circle cx="30" cy="140" r="7" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
-      <ellipse cx="30" cy="250" rx="15" ry="5" fill="#C9A84C"/>
-      <rect x="25" y="245" width="10" height="15" fill="url(#velGoldR)" rx="2"/>
-    </svg>
+    <!-- Right Vel (mirrored) -->
+    <img class="vel-splash vel-right-splash" src="https://img.freepik.com/premium-vector/vector-illustration-lord-murugan-spear-transparent-background_181203-35133.jpg" alt="Vel" onerror="this.style.display='none'">
 
     <!-- Center collision glow -->
-    <div class="vel-center">
-      <svg width="80" height="80" viewBox="0 0 80 80">
+    <div class="vel-center-glow">
+      <svg width="100" height="100" viewBox="0 0 100 100">
         <defs>
-          <radialGradient id="centerGlow"><stop offset="0%" stop-color="#FFF8E7"/><stop offset="50%" stop-color="#C9A84C"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+          <radialGradient id="centerGlow"><stop offset="0%" stop-color="#FFD700"/><stop offset="30%" stop-color="#C9A84C"/><stop offset="100%" stop-color="transparent"/></radialGradient>
         </defs>
-        <circle cx="40" cy="40" r="40" fill="url(#centerGlow)"/>
-        <circle cx="40" cy="40" r="20" fill="#FFF8E7" opacity="0.8"/>
-        <circle cx="40" cy="40" r="8" fill="#fff"/>
+        <circle cx="50" cy="50" r="50" fill="url(#centerGlow)"/>
       </svg>
     </div>
 
@@ -191,37 +142,15 @@ body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;over
 </script>
 
 <!-- Hero Vel Decorations -->
-<div class="hero-vel-left">
-  <svg viewBox="0 0 30 140" xmlns="http://www.w3.org/2000/svg">
-    <defs><linearGradient id="hgL" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#8B6914"/><stop offset="50%" stop-color="#C9A84C"/><stop offset="100%" stop-color="#E8C97A"/></linearGradient></defs>
-    <polygon points="15,3 8,28 15,23 22,28" fill="url(#hgL)"/>
-    <rect x="13" y="25" width="4" height="100" fill="url(#hgL)" rx="1"/>
-    <ellipse cx="15" cy="30" rx="6" ry="2" fill="#C9A84C"/>
-    <ellipse cx="15" cy="40" rx="5" ry="1.5" fill="#C9A84C"/>
-    <ellipse cx="15" cy="60" rx="4" ry="1.5" fill="#C9A84C"/>
-    <ellipse cx="15" cy="80" rx="4" ry="1" fill="#C9A84C"/>
-    <ellipse cx="15" cy="125" rx="7" ry="2.5" fill="#C9A84C"/>
-  </svg>
-</div>
-<div class="hero-vel-right">
-  <svg viewBox="0 0 30 140" xmlns="http://www.w3.org/2000/svg">
-    <defs><linearGradient id="hgR" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#8B6914"/><stop offset="50%" stop-color="#C9A84C"/><stop offset="100%" stop-color="#E8C97A"/></linearGradient></defs>
-    <polygon points="15,3 8,28 15,23 22,28" fill="url(#hgR)"/>
-    <rect x="13" y="25" width="4" height="100" fill="url(#hgR)" rx="1"/>
-    <ellipse cx="15" cy="30" rx="6" ry="2" fill="#C9A84C"/>
-    <ellipse cx="15" cy="40" rx="5" ry="1.5" fill="#C9A84C"/>
-    <ellipse cx="15" cy="60" rx="4" ry="1.5" fill="#C9A84C"/>
-    <ellipse cx="15" cy="80" rx="4" ry="1" fill="#C9A84C"/>
-    <ellipse cx="15" cy="125" rx="7" ry="2.5" fill="#C9A84C"/>
-  </svg>
-</div>
+<img class="hero-vel-left" src="https://img.freepik.com/premium-vector/vector-illustration-lord-murugan-spear-transparent-background_181203-35133.jpg" alt="Vel">
+<img class="hero-vel-right" src="https://img.freepik.com/premium-vector/vector-illustration-lord-murugan-spear-transparent-background_181203-35133.jpg" alt="Vel">
 
 /* HERO VEL DECORATIONS */
-.hero-vel-left,.hero-vel-right{position:absolute;width:40px;height:auto;top:50%;transform:translateY(-50%);opacity:0.5;
+.hero-vel-left,.hero-vel-right{position:absolute;width:50px;height:auto;top:50%;transform:translateY(-50%);opacity:0.4;
   z-index:3;pointer-events:none;}
-.hero-vel-left{left:2%;}
-.hero-vel-right{right:2%;}
-@media(max-width:768px){.hero-vel-left,.hero-vel-right{width:22px;opacity:0.25;}}
+.hero-vel-left{left:1%;}
+.hero-vel-right{right:1%;}
+@media(max-width:768px){.hero-vel-left,.hero-vel-right{width:30px;opacity:0.25;}}
 @media(max-width:480px){.hero-vel-left,.hero-vel-right{display:none;}}
 
 /* NAV */
