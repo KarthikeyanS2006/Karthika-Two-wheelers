@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>KARTHIKA TWO WHEELERS — Auto Parts & Accessories for Everyone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=Philosopher:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Tamil:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{
+  --bg:#080C12;
+  --bg2:#0D1520;
+  --bg3:#111B28;
+  --deep-red:#3D0000;
+  --vermilion:#C0392B;
+  --gold:#C9A84C;
+  --gold-lt:#E8C97A;
+  --gold-pale:#F5E6C0;
+  --teal:#8B1A1A;
+  --white:#F8F6F2;
+  --muted:#8A9AB0;
+  --border:rgba(201,168,76,0.18);
+  --card:rgba(255,255,255,0.035);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden;}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;
+  justify-content:space-between;padding:12px 24px;
+  background:rgba(8,12,18,0.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Cinzel Decorative',serif;font-size:0.8rem;color:var(--gold);
+  letter-spacing:0.04em;text-decoration:none;white-space:nowrap;}
+.nav-links{display:flex;gap:16px;list-style:none;flex-wrap:nowrap;overflow:hidden;}
+.nav-links a{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;transition:color .25s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{display:inline-flex;align-items:center;gap:6px;font-size:0.65rem;
+  letter-spacing:0.1em;color:var(--gold-lt);text-decoration:none;
+  border:1px solid var(--border);padding:6px 12px;border-radius:30px;transition:all .3s;white-space:nowrap;}
+.nav-cta:hover{background:var(--gold);color:var(--bg);border-color:var(--gold);}
+
+/* HERO */
+#hero{min-height:90vh;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;padding:100px 24px 60px;
+  position:relative;overflow:hidden;
+  background:linear-gradient(180deg,rgba(8,12,18,0.9) 0%,rgba(13,0,5,0.85) 40%,rgba(61,0,0,0.75) 70%,rgba(107,15,26,0.85) 100%),
+  url('https://d35xcwcl37xo08.cloudfront.net/current-affairs-wp-uploads/2025/04/motogp.jpg') center/cover no-repeat fixed;}
+#hero::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 60%,rgba(192,57,43,0.25) 0%,transparent 65%);
+  pointer-events:none;}
+.hero-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.particle{position:absolute;border-radius:50%;background:rgba(201,168,76,0.6);
+  animation:pFloat linear infinite;}
+@keyframes pFloat{
+  0%{transform:translateY(100vh) rotate(0deg);opacity:0;}
+  10%{opacity:1;}90%{opacity:0.5;}
+  100%{transform:translateY(-40px) rotate(720deg);opacity:0;}
+}
+.hero-badge{font-size:0.6rem;letter-spacing:0.45em;text-transform:uppercase;
+  color:var(--gold);border:1px solid var(--border);padding:6px 18px;
+  border-radius:30px;margin-bottom:28px;display:inline-block;}
+.hero-title{font-family:'Cinzel Decorative',serif;font-size:clamp(1.8rem,5.5vw,4rem);
+  font-weight:700;letter-spacing:0.06em;line-height:1.2;margin-bottom:10px;
+  background:linear-gradient(135deg,#fff 0%,var(--gold-lt) 50%,#fff 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:clamp(0.88rem,2vw,1.1rem);color:var(--muted);line-height:1.85;
+  max-width:560px;margin:0 auto 28px;font-weight:300;}
+.hero-by{display:inline-flex;align-items:center;gap:8px;font-size:0.75rem;
+  letter-spacing:0.12em;color:var(--muted);margin-bottom:40px;}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-lt));
+  color:var(--bg);font-size:0.75rem;font-weight:600;letter-spacing:0.18em;
+  text-transform:uppercase;padding:15px 34px;border-radius:4px;
+  text-decoration:none;transition:all .3s;
+  box-shadow:0 8px 28px rgba(201,168,76,0.28);}
+.hero-cta:hover{transform:translateY(-3px);box-shadow:0 14px 38px rgba(201,168,76,0.42);}
+
+/* SECTIONS */
+section{padding:90px 24px;overflow:visible;}
+.sec-inner{max-width:980px;margin:0 auto;}
+.sec-label{font-size:0.56rem;letter-spacing:0.55em;text-transform:uppercase;
+  color:var(--gold);opacity:0.72;margin-bottom:10px;display:block;}
+.sec-title{font-family:'Cinzel Decorative',serif;font-size:clamp(1.6rem,4vw,2.8rem);
+  font-weight:700;letter-spacing:0.06em;color:var(--white);line-height:1.2;margin-bottom:14px;}
+.sec-desc{font-size:0.9rem;color:var(--muted);line-height:1.85;
+  max-width:600px;margin-bottom:50px;font-weight:300;}
+.gold-rule{width:50px;height:1.5px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-lt),var(--gold));
+  margin:0 auto 52px;}
+
+/* BRANDS GRID */
+.brands-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px;}
+.brand-card{background:var(--card);border:1px solid var(--border);border-radius:8px;
+  padding:30px 20px;text-align:center;transition:all .32s;}
+.brand-card:hover{border-color:rgba(201,168,76,0.45);transform:translateY(-5px);
+  box-shadow:0 18px 55px rgba(0,0,0,0.38);}
+.brand-card img{height:45px;max-width:90px;object-fit:contain;margin-bottom:14px;
+  filter:grayscale(0.2) brightness(0.9);transition:filter .3s;}
+.brand-card:hover img{filter:none;}
+.brand-card h4{font-family:'Cinzel',serif;font-size:0.82rem;letter-spacing:0.12em;
+  color:var(--gold-lt);margin-bottom:4px;font-weight:600;}
+.brand-card p{font-size:0.72rem;color:var(--muted);}
+
+/* PRODUCTS GRID */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.product-card{background:var(--card);border:1px solid var(--border);border-radius:8px;
+  overflow:hidden;transition:all .32s;position:relative;}
+.product-card:hover{border-color:rgba(201,168,76,0.4);transform:translateY(-5px);
+  box-shadow:0 18px 55px rgba(0,0,0,0.4);}
+.product-img{height:180px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#1a0808,#2a1010);overflow:hidden;}
+.product-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.product-card:hover .product-img img{transform:scale(1.08);}
+.product-img i{font-size:3.5rem;color:var(--gold);opacity:0.3;}
+.product-body{padding:22px;}
+.product-body h3{font-family:'Cinzel',serif;font-size:1rem;letter-spacing:0.1em;
+  color:var(--gold-lt);margin-bottom:8px;font-weight:600;}
+.product-body p{font-size:0.82rem;color:var(--muted);line-height:1.7;margin-bottom:12px;}
+.product-price{font-family:'Cinzel',serif;font-size:1rem;font-weight:700;
+  color:var(--gold);margin-bottom:14px;}
+.product-btn{width:100%;padding:11px;border-radius:4px;
+  background:linear-gradient(135deg,var(--vermilion),var(--deep-red));
+  color:var(--white);font-size:0.75rem;font-weight:600;letter-spacing:0.1em;
+  text-transform:uppercase;border:none;cursor:pointer;transition:all .3s;
+  display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;}
+.product-btn:hover{transform:scale(1.02);box-shadow:0 8px 25px rgba(192,57,43,0.4);}
+
+/* SERVICES GRID */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+.service-card{background:var(--card);border:1px solid var(--border);border-radius:8px;
+  padding:32px 24px;text-align:center;transition:all .3s;}
+.service-card:hover{border-color:rgba(201,168,76,0.35);
+  background:rgba(255,255,255,0.05);transform:translateY(-4px);}
+.service-icon{width:70px;height:70px;margin:0 auto 18px;
+  background:linear-gradient(135deg,var(--vermilion),var(--deep-red));
+  border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.service-icon i{font-size:1.8rem;color:var(--gold);}
+.service-card h3{font-family:'Cinzel',serif;font-size:0.82rem;letter-spacing:0.12em;
+  color:var(--gold-lt);margin-bottom:9px;font-weight:600;}
+.service-card p{font-size:0.8rem;color:var(--muted);line-height:1.7;}
+
+/* GALLERY GRID */
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+.gallery-item{position:relative;overflow:hidden;border-radius:8px;
+  background:#1a0a0a;min-height:200px;cursor:pointer;
+  border:1px solid var(--border);transition:all .3s;}
+.gallery-item:hover{border-color:var(--gold);}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .4s;}
+.gallery-item:hover img{transform:scale(1.08);}
+.gallery-overlay{position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,0.5);color:var(--gold);opacity:0;transition:opacity .3s;
+  font-size:1.3rem;}
+.gallery-item:hover .gallery-overlay{opacity:1;}
+
+/* DETAILS GRID */
+.details-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;}
+.detail-card{background:var(--card);border:1px solid var(--border);border-radius:8px;
+  padding:28px 20px;text-align:center;transition:all .3s;}
+.detail-card:hover{border-color:var(--gold);transform:translateY(-4px);}
+.detail-icon{font-size:1.8rem;color:var(--gold);margin-bottom:12px;display:block;}
+.detail-label{font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.35em;
+  text-transform:uppercase;color:var(--gold);opacity:0.7;margin-bottom:8px;}
+.detail-value{font-family:'Philosopher',serif;font-size:1rem;color:var(--white);margin-bottom:6px;}
+.detail-sub{font-size:0.78rem;color:var(--muted);line-height:1.7;}
+
+/* ENQUIRY FORM */
+.enquiry-form{max-width:600px;margin:0 auto;background:var(--card);
+  border:1px solid var(--border);border-radius:10px;padding:40px;}
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-weight:600;margin-bottom:7px;
+  color:var(--gold-lt);font-size:0.85rem;}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:13px 15px;
+  border:1px solid var(--border);border-radius:6px;
+  font-family:'Inter',sans-serif;font-size:0.9rem;
+  background:rgba(255,255,255,0.04);color:var(--white);
+  transition:border-color .3s;}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{
+  outline:none;border-color:var(--gold);}
+.form-group textarea{resize:vertical;min-height:100px;}
+.submit-btn{width:100%;padding:14px;border-radius:4px;
+  background:linear-gradient(135deg,var(--vermilion),var(--deep-red));
+  color:var(--white);font-family:'Inter',sans-serif;font-size:0.85rem;
+  font-weight:700;letter-spacing:0.1em;cursor:pointer;border:none;
+  transition:all .3s;display:flex;align-items:center;justify-content:center;gap:10px;}
+.submit-btn:hover{transform:scale(1.02);box-shadow:0 10px 30px rgba(192,57,43,0.35);}
+
+/* CONTACT SECTION */
+#contact{background:linear-gradient(180deg,var(--deep-red) 0%,#1a0005 100%);}
+.contact-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;}
+.contact-btn{padding:14px 28px;border-radius:999px;font-size:0.75rem;
+  font-weight:600;letter-spacing:0.12em;text-decoration:none;
+  display:inline-flex;align-items:center;gap:10px;transition:all .3s;}
+.call-btn{background:linear-gradient(135deg,var(--gold),#b8820a);color:var(--deep-red);}
+.call-btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(201,148,42,0.35);}
+.whatsapp-btn{background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;}
+.whatsapp-btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,0.35);}
+.business-hours{background:rgba(255,255,255,0.05);border:1px solid var(--border);
+  border-radius:16px;padding:28px 40px;display:inline-block;margin-bottom:30px;}
+.business-hours h3{font-family:'Cinzel',serif;font-size:1.2rem;letter-spacing:0.15em;
+  color:var(--gold);margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:10px;}
+.business-hours p{font-size:1.4rem;font-weight:700;color:var(--white);}
+.business-hours .note{font-size:0.82rem;color:var(--muted);margin-top:8px;}
+.address-row{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-bottom:20px;}
+.address-item{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:0.9rem;}
+.address-item i{color:var(--gold);}
+.address-item a{color:var(--gold);text-decoration:none;transition:color .3s;}
+.address-item a:hover{color:var(--gold-lt);}
+.map-container{max-width:900px;margin:0 auto;border-radius:12px;overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,0.5);border:2px solid var(--border);}
+.map-container iframe{width:100%;height:350px;border:none;display:block;}
+
+/* FOOTER */
+footer{background:#020408;padding:60px 24px 40px;
+  border-top:1px solid rgba(201,168,76,0.07);}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:40px;max-width:1100px;margin:0 auto 40px;}
+.footer-col h3{font-family:'Cinzel Decorative',serif;font-size:1rem;
+  color:var(--gold);margin-bottom:18px;position:relative;padding-bottom:10px;}
+.footer-col h3::after{content:'';position:absolute;bottom:0;left:0;
+  width:40px;height:2px;background:var(--gold);}
+.footer-col p{color:var(--muted);line-height:1.8;font-size:0.88rem;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:10px;}
+.footer-col ul li a{color:var(--muted);text-decoration:none;font-size:0.88rem;
+  transition:color .3s;display:block;}
+.footer-col ul li a:hover{color:var(--gold);}
+.footer-contact{display:flex;flex-direction:column;gap:12px;}
+.footer-contact-item{display:flex;align-items:center;gap:10px;
+  color:var(--muted);font-size:0.88rem;}
+.footer-contact-item i{color:var(--gold);width:16px;text-align:center;}
+.footer-contact-item a{color:var(--muted);text-decoration:none;transition:color .3s;}
+.footer-contact-item a:hover{color:var(--gold);}
+.footer-social{display:flex;gap:10px;margin-top:16px;}
+.footer-social a{width:40px;height:40px;border-radius:50%;
+  background:rgba(255,255,255,0.05);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold);font-size:1rem;transition:all .3s;}
+.footer-social a:hover{background:var(--gold);color:var(--bg);}
+.footer-bottom{text-align:center;padding-top:28px;
+  border-top:1px solid rgba(201,168,76,0.07);}
+.footer-bottom p{font-size:0.72rem;color:#2A2A2A;letter-spacing:0.1em;}
+
+/* GOOGLE TRANSLATE */
+.translate-wrapper{position:fixed;top:14px;right:160px;z-index:1001;
+  background:rgba(8,12,18,0.92);backdrop-filter:blur(8px);
+  border:1px solid rgba(201,168,76,0.3);border-radius:20px;padding:6px 10px;
+  display:flex;align-items:center;gap:8px;}
+.goog-te-gadget{font-size:11px!important;display:flex!important;align-items:center!important;gap:6px!important;}
+.goog-te-gadget span{display:none!important;}
+.goog-te-combo{
+  background:#111!important;border:1px solid rgba(201,168,76,0.4)!important;
+  color:var(--gold)!important;border-radius:12px!important;
+  padding:5px 28px 5px 10px!important;font-size:12px!important;
+  cursor:pointer!important;font-family:'Inter',sans-serif!important;
+  appearance:none!important;-webkit-appearance:none!important;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23C9A84C' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L1 4h14z'/%3E%3C/svg%3E")!important;
+  background-repeat:no-repeat!important;background-position:right 8px center!important;}
+.goog-te-combo:hover{border-color:var(--gold)!important;}
+.goog-te-combo option{background:#111!important;color:#fff!important;padding:8px!important;}
+.goog-te-banner-frame,.goog-te-balloon-frame{display:none!important;}
+.VIpgJd-ZViAf,#goog-gt-pym,.goog-te-tooltip{display:none!important;}
+#goog-gt-tt{display:none!important;}
+.goog-logo-link{display:none!important;}
+.goog-te-gadget>div{display:none!important;}
+
+/* CALL BUTTONS */
+.call-buttons-fixed{position:fixed;bottom:25px;right:25px;
+  display:flex;flex-direction:column;gap:10px;z-index:1000;}
+.call-btn-fix{width:54px;height:54px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,.3);
+  animation:pulse 2s infinite;}
+.phone-fix{background:linear-gradient(135deg,var(--vermilion),var(--deep-red));}
+.whatsapp-fix{background:linear-gradient(135deg,#25D366,#128C7E);}
+.call-btn-fix:hover{transform:scale(1.1);}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
+
+/* FLOATING ICONS */
+.floating-icons{position:fixed;top:0;left:0;width:100%;height:100%;
+  pointer-events:none;z-index:50;overflow:hidden;}
+.float-icon{position:absolute;opacity:.5;color:var(--gold);
+  animation:floatRot 6s ease-in-out infinite;}
+@keyframes floatRot{0%{transform:translateY(0) translateX(0) rotate(0deg);}
+  50%{transform:translateY(-20px) translateX(10px) rotate(180deg);}
+  100%{transform:translateY(0) translateX(0) rotate(360deg);}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);
+  transition:opacity .6s ease,transform .6s ease;}
+.reveal.on{opacity:1;transform:translateY(0);}
+.reveal.d1{transition-delay:.05s;}.reveal.d2{transition-delay:.1s;}
+.reveal.d3{transition-delay:.15s;}.reveal.d4{transition-delay:.2s;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  #hero{background-attachment:scroll;}
+  nav{padding:12px 16px;}
+  .nav-links{display:none;}
+  .hero-title{font-size:clamp(1.8rem,8vw,3rem);}
+  section{padding:60px 16px;}
+  #hero > div[style]{padding:24px 20px!important;}
+  .products-grid,.brands-grid,.services-grid,.gallery-grid,.details-grid{grid-template-columns:1fr 1fr;}
+  .product-img{height:140px;}
+  .enquiry-form{padding:24px 18px;}
+  .map-container iframe{height:250px;}
+  .translate-wrapper{top:auto;bottom:95px;right:15px;left:auto;}
+  .call-buttons-fixed{bottom:20px;right:15px;flex-direction:row;}
+  .call-btn-fix{width:48px;height:48px;}
+}
+@media(max-width:480px){
+  .products-grid,.brands-grid,.services-grid,.details-grid{grid-template-columns:1fr;}
+  .hero-title{font-size:clamp(1.6rem,9vw,2.5rem);}
+  .contact-buttons{flex-direction:column;align-items:center;}
+  .contact-btn{padding:12px 24px;font-size:0.7rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- Progress bar -->
+<div id="progress-bar" style="position:fixed;top:0;left:0;height:3px;width:0%;
+  background:linear-gradient(90deg,var(--gold),var(--vermilion),var(--gold));
+  z-index:9999;"></div>
+
+<!-- Google Translate -->
+<div class="translate-wrapper">
+  <i class="fas fa-globe" style="color:var(--gold);font-size:0.8rem;"></i>
+  <div id="google_translate_element"></div>
+</div>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,ta'}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Call Buttons Fixed -->
+<div class="call-buttons-fixed">
+  <a class="call-btn-fix phone-fix" href="tel:7358990541" title="Call 7358990541">
+    <i class="fas fa-phone"></i>
+  </a>
+  <a class="call-btn-fix whatsapp-fix" href="https://wa.me/917358990541?text=Hi%20Karthika%20Two%20Wheelers%2C%20I%20need%20enquiry%20about%20your%20products" target="_blank" title="WhatsApp">
+    <i class="fab fa-whatsapp" style="font-size:1.4rem;"></i>
+  </a>
+</div>
+
+<!-- Floating Icons -->
+<div class="floating-icons" id="floatingIcons">
+  <div class="float-icon" style="top:80px;left:4%;animation-duration:9s;">
+    <i class="fas fa-cog" style="font-size:2rem;"></i>
+  </div>
+  <div class="float-icon" style="top:160px;left:90%;animation-duration:11s;">
+    <i class="fas fa-wrench" style="font-size:1.8rem;"></i>
+  </div>
+  <div class="float-icon" style="top:300px;left:8%;animation-duration:8s;">
+    <i class="fas fa-oil-can" style="font-size:1.6rem;"></i>
+  </div>
+  <div class="float-icon" style="top:450px;left:85%;animation-duration:10s;">
+    <i class="fas fa-motorcycle" style="font-size:2rem;"></i>
+  </div>
+  <div class="float-icon" style="top:600px;left:15%;animation-duration:12s;">
+    <i class="fas fa-bolt" style="font-size:1.5rem;"></i>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">KARTHIKA TWO WHEELERS</a>
+  <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#brands">Brands</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="tel:7358990541">
+    <i class="fas fa-phone"></i> Call Now
+  </a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-particles" id="prtcls"></div>
+  
+  <!-- Animated Motorcycle SVG -->
+  <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+    width:min(600px,90vw);z-index:2;opacity:0.06;pointer-events:none;">
+    <svg viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="mbg" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#C9A84C"/>
+          <stop offset="100%" stop-color="#8B6914"/>
+        </linearGradient>
+        <linearGradient id="mwg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#333"/>
+          <stop offset="100%" stop-color="#111"/>
+        </linearGradient>
+      </defs>
+      <!-- Wheels -->
+      <circle cx="110" cy="200" r="55" fill="none" stroke="url(#mwg)" stroke-width="14"/>
+      <circle cx="110" cy="200" r="40" fill="none" stroke="#555" stroke-width="3"/>
+      <circle cx="110" cy="200" r="14" fill="#C9A84C"/>
+      <circle cx="390" cy="200" r="55" fill="none" stroke="url(#mwg)" stroke-width="14"/>
+      <circle cx="390" cy="200" r="40" fill="none" stroke="#555" stroke-width="3"/>
+      <circle cx="390" cy="200" r="14" fill="#C9A84C"/>
+      <!-- Frame -->
+      <path d="M110 200 L170 140 L330 140 L390 200" fill="none" stroke="url(#mbg)" stroke-width="18" stroke-linecap="round"/>
+      <path d="M170 140 L190 95 L270 95 L290 140" fill="url(#mbg)"/>
+      <!-- Tank -->
+      <ellipse cx="230" cy="110" rx="55" ry="22" fill="url(#mbg)"/>
+      <!-- Seat -->
+      <path d="M170 120 Q210 90 260 95 L285 120 Q235 135 170 120" fill="#3D0000"/>
+      <!-- Headlight -->
+      <ellipse cx="360" cy="130" rx="18" ry="22" fill="#FFD700"/>
+      <ellipse cx="360" cy="130" rx="10" ry="13" fill="#FFFDE7"/>
+      <!-- Exhaust -->
+      <path d="M130 185 L90 195 L70 215" fill="none" stroke="#888" stroke-width="10" stroke-linecap="round"/>
+      <!-- Engine -->
+      <rect x="150" y="150" width="70" height="45" rx="8" fill="#3D0000"/>
+      <rect x="160" y="160" width="22" height="28" rx="4" fill="#555"/>
+      <!-- Speedometer -->
+      <circle cx="300" cy="105" r="12" fill="#111"/>
+      <circle cx="300" cy="105" r="8" fill="#C9A84C"/>
+      <!-- Fork -->
+      <line x1="335" y1="115" x2="390" y2="200" stroke="#444" stroke-width="9"/>
+      <line x1="325" y1="115" x2="390" y2="200" stroke="#444" stroke-width="5"/>
+      <!-- Suspension -->
+      <path d="M195 125 Q175 170 145 190" fill="none" stroke="#444" stroke-width="7"/>
+      <!-- Mudguards -->
+      <path d="M110 145 Q110 165 110 200" fill="none" stroke="url(#mbg)" stroke-width="7"/>
+      <path d="M390 145 Q390 165 390 200" fill="none" stroke="url(#mbg)" stroke-width="7"/>
+      <!-- Headlight glow -->
+      <ellipse cx="385" cy="130" rx="35" ry="55" fill="url(#headGrad)" opacity="0.2">
+        <animate attributeName="opacity" values="0.15;0.35;0.15" dur="2s" repeatCount="indefinite"/>
+      </ellipse>
+      <defs>
+        <radialGradient id="headGrad">
+          <stop offset="0%" stop-color="#FFD700"/>
+          <stop offset="100%" stop-color="transparent"/>
+        </radialGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div style="position:relative;z-index:5;padding:0 20px;">
+    <div style="background:rgba(8,12,18,0.6);backdrop-filter:blur(14px);
+      border:1px solid rgba(201,168,76,0.18);border-radius:16px;
+      padding:36px 36px;max-width:720px;margin:0 auto 28px;">
+      <span class="hero-badge">Auto Parts & Accessories</span>
+      <h1 class="hero-title">KARTHIKA<br>TWO WHEELERS</h1>
+      <p class="hero-sub">
+        Your trusted partner for Engine Oils, Brake Parts, Tires, Chains, Helmets, Filters & Accessories.<br>
+        Genuine parts for Hero, Honda, TVS & Royal Enfield. Premium lubricants from Castrol & Motul.
+      </p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;">
+        <a href="#products" class="hero-cta"><i class="fas fa-th-large"></i> Explore Products</a>
+        <a href="tel:7358990541" class="hero-cta" style="background:transparent;color:var(--gold);border:2px solid var(--gold);box-shadow:none;">
+          <i class="fas fa-phone"></i> Call Now
+        </a>
+      </div>
+      <div style="display:flex;gap:40px;justify-content:center;flex-wrap:wrap;">
+        <div style="text-align:center;">
+          <div style="font-family:'Cinzel Decorative',serif;font-size:2rem;color:var(--gold);font-weight:700;">10+</div>
+          <div style="font-size:0.65rem;letter-spacing:0.25em;color:var(--white);text-transform:uppercase;opacity:0.8;">Years</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:'Cinzel Decorative',serif;font-size:2rem;color:var(--gold);font-weight:700;">5000+</div>
+          <div style="font-size:0.65rem;letter-spacing:0.25em;color:var(--white);text-transform:uppercase;opacity:0.8;">Happy Customers</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:'Cinzel Decorative',serif;font-size:2rem;color:var(--gold);font-weight:700;">8+</div>
+          <div style="font-size:0.65rem;letter-spacing:0.25em;color:var(--white);text-transform:uppercase;opacity:0.8;">Top Brands</div>
+        </div>
+      </div>
+    </div>
+    <a href="#about" style="display:inline-block;margin-top:20px;z-index:5;position:relative;color:var(--gold);text-decoration:none;animation:bounce 2s infinite;">
+      <i class="fas fa-chevron-down" style="font-size:1.5rem;opacity:0.7;"></i>
+    </a>
+  </div>
+  <style>
+    @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(10px);}}
+  </style>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="background:var(--bg2);">
+  <div class="sec-inner">
+    <div style="text-align:center;margin-bottom:50px;">
+      <span class="sec-label reveal">About Us</span>
+      <h2 class="sec-title reveal">Welcome to<br>KARTHIKA TWO WHEELERS</h2>
+      <p class="sec-desc reveal">Serving two-wheeler enthusiasts with genuine parts, premium lubricants and expert guidance for over a decade.</p>
+      <div class="gold-rule reveal"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;" class="reveal">
+      <div>
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop"
+             alt="Karthika Two Wheelers Shop" style="width:100%;border-radius:10px;
+             border:1px solid var(--border);">
+      </div>
+      <div>
+        <h3 style="font-family:'Cinzel',serif;font-size:1.3rem;color:var(--gold-lt);margin-bottom:16px;letter-spacing:0.08em;">
+          Your Trusted Two-Wheeler Partner
+        </h3>
+        <p style="color:var(--muted);line-height:1.9;margin-bottom:16px;font-size:0.92rem;">
+          At Karthika Two Wheelers, we've been proudly serving our valued customers with premium auto parts, accessories, and engine oils for over a decade. Our commitment to quality and customer satisfaction has made us the preferred choice for bike enthusiasts across Tamil Nadu.
+        </p>
+        <p style="color:var(--muted);line-height:1.9;margin-bottom:24px;font-size:0.92rem;">
+          We stock genuine parts for Hero, Honda, TVS, and Royal Enfield motorcycles, along with premium lubricants from Castrol and Motul. Our experienced team is always ready to help you find the right parts for your vehicle.
+        </p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div style="display:flex;align-items:center;gap:8px;color:var(--muted);font-size:0.85rem;">
+            <i class="fas fa-check-circle" style="color:var(--gold);"></i> 100% Genuine Parts
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;color:var(--muted);font-size:0.85rem;">
+            <i class="fas fa-check-circle" style="color:var(--gold);"></i> Expert Guidance
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;color:var(--muted);font-size:0.85rem;">
+            <i class="fas fa-check-circle" style="color:var(--gold);"></i> Best Prices
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;color:var(--muted);font-size:0.85rem;">
+            <i class="fas fa-check-circle" style="color:var(--gold);"></i> Wide Selection
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section id="brands" style="background:var(--bg);">
+  <div class="sec-inner">
+    <div style="text-align:center;margin-bottom:50px;">
+      <span class="sec-label reveal">Authorized & Trusted</span>
+      <h2 class="sec-title reveal">Our Brand<br>Collaborations</h2>
+      <p class="sec-desc reveal">Official dealer for leading two-wheeler brands and premium lubricants</p>
+      <div class="gold-rule reveal"></div>
+    </div>
+    <div class="brands-grid reveal">
+      <div class="brand-card">
+        <img src="https://www.heromotocorp.com/content/dam/hero-aem-website/brand/logo/logo.svg" alt="Hero">
+        <h4>HERO</h4>
+        <p>Authorized Parts</p>
+      </div>
+      <div class="brand-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Honda_logo.svg" alt="Honda" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';this.nextElementSibling.style.height='45px';this.nextElementSibling.style.alignItems='center';this.nextElementSibling.style.justifyContent='center';this.nextElementSibling.style.fontSize='1.2rem';this.nextElementSibling.style.color='var(--gold-lt)';">
+        <div style="display:none;font-family:'Cinzel',serif;color:var(--gold-lt);">HONDA</div>
+        <h4>HONDA</h4>
+        <p>Authorized Parts</p>
+      </div>
+      <div class="brand-card">
+        <img src="https://www.tvsmotor.com/-/media/Feature/Header/TVSLogo-hr.svg" alt="TVS">
+        <h4>TVS</h4>
+        <p>Authorized Parts</p>
+      </div>
+      <div class="brand-card">
+        <img src="https://www.royalenfield.com/content/dam/royal-enfield/mexico/logos/logo.svg" alt="Royal Enfield">
+        <h4>ROYAL ENFIELD</h4>
+        <p>Genuine Parts</p>
+      </div>
+      <div class="brand-card">
+        <img src="https://www.castrol.com/apps/settings/wcm/designs/refresh/castrol/images/reignite/logo.svg" alt="Castrol">
+        <h4>CASTROL</h4>
+        <p>Authorized Lubricants</p>
+      </div>
+      <div class="brand-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Motul_logo.svg" alt="Motul" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div style="display:none;font-family:'Cinzel',serif;color:var(--gold-lt);">MOTUL</div>
+        <h4>MOTUL</h4>
+        <p>Premium Lubricants</p>
+      </div>
+      <div class="brand-card">
+        <img src="https://www.ceat.com/content/dam/ceat/website/logo.png" alt="CEAT" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div style="display:none;font-family:'Cinzel',serif;color:var(--gold-lt);">CEAT</div>
+        <h4>CEAT</h4>
+        <p>Tyres & Tubes</p>
+      </div>
+      <div class="brand-card">
+        <img src="https://www.mrftyres.com/images/mrf-logo.png" alt="MRF" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div style="display:none;font-family:'Cinzel',serif;color:var(--gold-lt);">MRF</div>
+        <h4>MRF</h4>
+        <p>Quality Tyres</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" style="background:var(--bg2);">
+  <div class="sec-inner">
+    <div style="text-align:center;margin-bottom:50px;">
+      <span class="sec-label reveal">Our Range</span>
+      <h2 class="sec-title reveal">Our Products</h2>
+      <p class="sec-desc reveal">Complete range of two-wheeler parts, oils and accessories for all major brands</p>
+      <div class="gold-rule reveal"></div>
+    </div>
+    <div class="products-grid">
+      <div class="product-card reveal">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1635784063388-1ff609e44c75?w=400&h=250&fit=crop" alt="Engine Oil">
+        </div>
+        <div class="product-body">
+          <h3>ENGINE OIL</h3>
+          <p>Premium engine oils including Castrol, Motul and trusted brands for optimal engine performance</p>
+          <div class="product-price">₹350 - ₹2,500</div>
+          <a href="https://wa.me/917358990541?text=Hi%2C%20I%20need%20Engine%20Oil" class="product-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Enquire Now
+          </a>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=400&h=250&fit=crop" alt="Brake Parts">
+        </div>
+        <div class="product-body">
+          <h3>BRAKE PARTS</h3>
+          <p>High-quality brake shoes, brake pads and components for safe riding</p>
+          <div class="product-price">₹250 - ₹1,800</div>
+          <a href="https://wa.me/917358990541?text=Hi%2C%20I%20need%20Brake%20Parts" class="product-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Enquire Now
+          </a>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=250&fit=crop" alt="Tires">
+        </div>
+        <div class="product-body">
+          <h3>TIRES & TUBES</h3>
+          <p>Durable tires and tubes from top brands for all two-wheeler models</p>
+          <div class="product-price">₹800 - ₹4,500</div>
+          <a href="https://wa.me/917358990541?text=Hi%2C%20I%20need%20Tires%20and%20Tubes" class="product-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Enquire Now
+          </a>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=250&fit=crop" alt="Chains">
+        </div>
+        <div class="product-body">
+          <h3>CHAINS & SPROCKETS</h3>
+          <p>Genuine chain kits and sprockets for smooth power transmission</p>
+          <div class="product-price">₹600 - ₹2,200</div>
+          <a href="https://wa.me/917358990541?text=Hi%2C%20I%20need%20Chains%20and%20Sprockets" class="product-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Enquire Now
+          </a>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=250&fit=crop" alt="Helmets">
+        </div>
+        <div class="product-body">
+          <h3>HELMETS</h3>
+          <p>ISI certified helmets in various designs — full face, half face & open face</p>
+          <div class="product-price">₹800 - ₹5,000</div>
+          <a href="https://wa.me/917358990541?text=Hi%2C%20I%20need%20Helmets" class="product-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Enquire Now
+          </a>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1558618047-f4b511cc0a08?w=400&h=250&fit=crop" alt="Lights">
+        </div>
+        <div class="product-body">
+          <h3>LIGHTS & ELECTRICAL</h3>
+          <p>Headlights, taillights, indicators, switches and electrical components</p>
+          <div class="product-price">₹150 - ₹2,000</div>
+          <a href="https://wa.me/917358990541?text=Hi%2C%20I%20need%20Lights%20and%20Electrical%20parts" class="product-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Enquire Now
+          </a>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&h=250&fit=crop" alt="Filters">
+        </div>
+        <div class="product-body">
+          <h3>FILTERS</h3>
+          <p>Air filters, oil filters and fuel filters for clean engine operation</p>
+          <div class="product-price">₹120 - ₹800</div>
+          <a href="https://wa.me/917358990541?text=Hi%2C%20I%20need%20Filters" class="product-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Enquire Now
+          </a>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=250&fit=crop" alt="Accessories">
+        </div>
+        <div class="product-body">
+          <h3>ACCESSORIES</h3>
+          <p>Guards, mirrors, seat covers, grips and premium bike accessories</p>
+          <div class="product-price">₹200 - ₹3,500</div>
+          <a href="https://wa.me/917358990541?text=Hi%2C%20I%20need%20Accessories" class="product-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Enquire Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="background:var(--bg);">
+  <div class="sec-inner">
+    <div style="text-align:center;margin-bottom:50px;">
+      <span class="sec-label reveal">What We Offer</span>
+      <h2 class="sec-title reveal">Our Services</h2>
+      <p class="sec-desc reveal">Beyond parts — comprehensive two-wheeler services for your convenience</p>
+      <div class="gold-rule reveal"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <i class="fas fa-wrench"></i>
+        </div>
+        <h3>PARTS INSTALLATION</h3>
+        <p>Free installation assistance with purchased parts by our expert team</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <i class="fas fa-search"></i>
+        </div>
+        <h3>FREE INSPECTION</h3>
+        <p>Complimentary bike inspection to identify issues and recommend solutions</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <i class="fas fa-headset"></i>
+        </div>
+        <h3>EXPERT CONSULTATION</h3>
+        <p>Professional advice on choosing the right parts for your vehicle</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <i class="fas fa-truck-fast"></i>
+        </div>
+        <h3>BULK ORDERS</h3>
+        <p>Special pricing and delivery for bulk and wholesale orders</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" style="background:var(--bg2);">
+  <div class="sec-inner">
+    <div style="text-align:center;margin-bottom:50px;">
+      <span class="sec-label reveal">Shop & Products</span>
+      <h2 class="sec-title reveal">Gallery</h2>
+      <p class="sec-desc reveal">Take a look inside Karthika Two Wheelers</p>
+      <div class="gold-rule reveal"></div>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" alt="Shop Interior">
+        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1635784063388-1ff609e44c75?w=400&h=300&fit=crop" alt="Engine Oils">
+        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=300&fit=crop" alt="Helmet Collection">
+        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=400&h=300&fit=crop" alt="Brake Parts">
+        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=300&fit=crop" alt="Tires">
+        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&h=300&fit=crop" alt="Workshop">
+        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY -->
+<section id="enquiry" style="background:var(--bg);">
+  <div class="sec-inner">
+    <div style="text-align:center;margin-bottom:50px;">
+      <span class="sec-label reveal">Get In Touch</span>
+      <h2 class="sec-title reveal">Product Enquiry</h2>
+      <p class="sec-desc reveal">Send us your requirements and we'll get back to you via WhatsApp</p>
+      <div class="gold-rule reveal"></div>
+    </div>
+    <form class="enquiry-form reveal" id="enquiryForm">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div class="form-group">
+          <label for="name">Your Name *</label>
+          <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" id="phone" placeholder="Enter your phone number" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="product">Product Category</label>
+        <select id="product">
+          <option value="">Select a product category</option>
+          <option value="Engine Oil">Engine Oil</option>
+          <option value="Brake Parts">Brake Parts</option>
+          <option value="Tires & Tubes">Tires &amp; Tubes</option>
+          <option value="Chains & Sprockets">Chains &amp; Sprockets</option>
+          <option value="Helmets">Helmets</option>
+          <option value="Lights & Electrical">Lights &amp; Electrical</option>
+          <option value="Filters">Filters</option>
+          <option value="Accessories">Accessories</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Your Requirement</label>
+        <textarea id="message" placeholder="Describe what you need — bike model, parts name, quantity..."></textarea>
+      </div>
+      <button type="submit" class="submit-btn">
+        <i class="fab fa-whatsapp"></i> Send via WhatsApp
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="padding:90px 24px;">
+  <div class="sec-inner">
+    <div style="text-align:center;margin-bottom:50px;">
+      <span class="sec-label reveal">Reach Us</span>
+      <h2 class="sec-title reveal" style="color:var(--gold);">Contact Us</h2>
+      <p class="sec-desc reveal" style="color:var(--muted);">Get in touch for any queries or requirements</p>
+    </div>
+
+    <div class="contact-buttons reveal">
+      <a class="contact-btn call-btn" href="tel:7358990541">
+        <i class="fas fa-phone"></i> Call: 7358990541
+      </a>
+      <a class="contact-btn call-btn" href="tel:9629336281">
+        <i class="fas fa-phone"></i> Call: 9629336281
+      </a>
+      <a class="contact-btn whatsapp-btn" href="https://wa.me/917358990541?text=Hi%20Karthika%20Two%20Wheelers%2C%20I%20need%20enquiry%20about%20your%20products" target="_blank">
+        <i class="fab fa-whatsapp"></i> WhatsApp Us
+      </a>
+    </div>
+
+    <div style="text-align:center;">
+      <div class="business-hours reveal">
+        <h3><i class="far fa-clock"></i> Business Hours</h3>
+        <p>Daily: 9:00 AM - 8:00 PM</p>
+        <p class="note">Open All Days Including Sundays & Holidays</p>
+      </div>
+
+      <div class="address-row reveal">
+        <div class="address-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Visit:</span>
+          <a href="https://maps.app.goo.gl/vWrLBr8xaF5m316r9" target="_blank">
+            View on Google Maps <i class="fas fa-external-link-alt" style="font-size:0.7rem;"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="map-container reveal">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15731.368107194812!2d78.4567155!3d9.6945209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b011da59fe4596f%3A0x43108b8bc756c0a4!2sKarthika%20two%20wheeler%20spare%20parts!5e0!3m2!1sen!2sin!4v1776064139727!5m2!1sen!2sin"
+          width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" title="Karthika Two Wheelers Location">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>KARTHIKA TWO WHEELERS</h3>
+      <p>Your trusted partner for premium two-wheeler parts, accessories, and engine oils in Tamil Nadu. Quality products, best prices, and genuine parts for Hero, Honda, TVS, and Royal Enfield.</p>
+      <div class="footer-social">
+        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+    <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#brands">Brands</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Products</h3>
+      <ul>
+        <li><a href="#products">Engine Oil</a></li>
+        <li><a href="#products">Brake Parts</a></li>
+        <li><a href="#products">Tires & Tubes</a></li>
+        <li><a href="#products">Chains & Sprockets</a></li>
+        <li><a href="#products">Helmets</a></li>
+        <li><a href="#products">Filters</a></li>
+        <li><a href="#products">Accessories</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Contact Info</h3>
+      <div class="footer-contact">
+        <div class="footer-contact-item">
+          <i class="fas fa-phone"></i>
+          <a href="tel:7358990541">7358990541</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-phone"></i>
+          <a href="tel:9629336281">9629336281</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fab fa-whatsapp"></i>
+          <a href="https://wa.me/917358990541" target="_blank">WhatsApp</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <a href="https://maps.app.goo.gl/vWrLBr8xaF5m316r9" target="_blank">View on Maps</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="far fa-clock"></i>
+          <span>Daily: 9 AM - 8 PM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Karthika Two Wheelers. All Rights Reserved. | Auto Parts & Accessories</p>
+  </div>
+</footer>
+
+<script>
+/* Scroll Progress Bar */
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const height = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = height > 0 ? (scrolled / height) * 100 : 0;
+  document.getElementById('progress-bar').style.width = pct + '%';
+});
+
+/* Hero Particles */
+(function() {
+  var c = document.getElementById('prtcls');
+  for (var i = 0; i < 18; i++) {
+    var p = document.createElement('div');
+    p.className = 'particle';
+    var s = 2 + Math.random() * 3;
+    p.style.cssText = 'width:' + s + 'px;height:' + s + 'px;left:' + Math.random() * 100 + '%;animation-duration:' + (8 + Math.random() * 12) + 's;animation-delay:' + Math.random() * 10 + 's;opacity:' + (0.3 + Math.random() * 0.5) + ';';
+    c.appendChild(p);
+  }
+})();
+
+/* Scroll Reveal */
+var ro = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('on'); });
+}, {threshold: 0.02});
+document.querySelectorAll('.reveal').forEach(function(el) { ro.observe(el); });
+
+/* Floating Icons on Scroll */
+var floatIcons = document.querySelectorAll('.float-icon');
+window.addEventListener('scroll', function() {
+  var sy = window.scrollY;
+  floatIcons.forEach(function(icon, i) {
+    var baseTop = 80 + i * 120;
+    var currentTop = baseTop + sy * 0.15;
+    icon.style.top = currentTop + 'px';
+    icon.style.opacity = sy > 150 ? '0.5' : '0';
+  });
+}, {passive: true});
+
+/* Enquiry Form WhatsApp */
+document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var name = document.getElementById('name').value || '';
+  var phone = document.getElementById('phone').value || '';
+  var product = document.getElementById('product').value || 'General Enquiry';
+  var message = document.getElementById('message').value || 'No message';
+  var msg = 'Hi Karthika Two Wheelers!%0A%0A*Enquiry Details:*%0A👤 Name: ' + name + '%0A📱 Phone: ' + phone + '%0A📦 Product: ' + product + '%0A💬 Message: ' + message;
+  window.open('https://wa.me/917358990541?text=' + msg, '_blank');
+});
+</script>
+</body>
+</html>
