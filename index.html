@@ -3,656 +3,440 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>KARTHIKA TWO WHEELERS — Auto Parts & Accessories for Everyone</title>
+<title>KARTHIKA TWO WHEELERS — Auto Parts & Accessories</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=Philosopher:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Tamil:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
 :root{
-  --bg:#080C12;
-  --bg2:#0D1520;
-  --bg3:#111B28;
-  --deep-red:#3D0000;
-  --vermilion:#C0392B;
-  --gold:#C9A84C;
-  --gold-lt:#E8C97A;
-  --gold-pale:#F5E6C0;
-  --teal:#8B1A1A;
-  --white:#F8F6F2;
-  --muted:#8A9AB0;
-  --border:rgba(201,168,76,0.18);
-  --card:rgba(255,255,255,0.035);
+  --primary:#dc2626;
+  --primary-dark:#b91c1c;
+  --primary-light:#ef4444;
+  --accent:#1a1a1a;
+  --bg:#ffffff;
+  --bg2:#fafafa;
+  --bg3:#f5f5f5;
+  --text:#333333;
+  --text-light:#666666;
+  --text-dark:#1a1a1a;
+  --border:#e0e0e0;
+  --white:#ffffff;
+  --shadow:0 4px 6px -1px rgba(0,0,0,0.1);
+  --shadow-lg:0 10px 15px -3px rgba(0,0,0,0.1);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden;}
-::-webkit-scrollbar{width:3px;}
-::-webkit-scrollbar-track{background:var(--bg);}
-::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6;overflow-x: hidden;}
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--bg2);}
+::-webkit-scrollbar-thumb{background:var(--primary);border-radius:3px;}
 
 /* SPLASH SCREEN */
-#splash{position:fixed;inset:0;z-index:99999;background:linear-gradient(180deg,#080C12,#3D0000,#080C12);
+#splash{position:fixed;inset:0;z-index:99999;background:var(--white);
   display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;}
 .vel-container{display:flex;align-items:center;justify-content:center;gap:0;position:relative;
-  height:350px;width:100%;max-width:700px;margin:0 auto;}
-.vel-splash{position:absolute;height:320px;width:auto;opacity:0;top:50%;transform:translateY(-50%);}
-.vel-left-splash{left:-50px;animation:velLeftMove 2.5s cubic-bezier(0.25,0.46,0.45,0.94) forwards;}
-.vel-right-splash{right:-50px;transform:translateY(-50%) scaleX(-1);animation:velRightMove 2.5s cubic-bezier(0.25,0.46,0.45,0.94) forwards;}
+  height:300px;width:100%;max-width:600px;margin:0 auto;}
+.vel-splash{position:absolute;height:280px;width:auto;opacity:0;top:50%;transform:translateY(-50%);}
+.vel-left-splash{left:-200px;animation:velLeftMove 2s cubic-bezier(0.25,0.46,0.45,0.94) forwards;}
+.vel-right-splash{right:-200px;transform:translateY(-50%) scaleX(-1);animation:velRightMove 2s cubic-bezier(0.25,0.46,0.45,0.94) forwards;}
 @keyframes velLeftMove{
-  0%{left:-250px;opacity:0;transform:translateY(-50%) rotate(-10deg);}
-  15%{opacity:1;}
-  85%{opacity:1;}
-  100%{left:calc(50% - 100px);opacity:1;transform:translateY(-50%) rotate(0deg);}
+  0%{left:-200px;opacity:0;transform:translateY(-50%) rotate(-15deg);}
+  50%{opacity:1;}
+  100%{left:calc(50% - 12px);opacity:1;transform:translateY(-50%) rotate(0deg);}
 }
 @keyframes velRightMove{
-  0%{right:-250px;opacity:0;transform:translateY(-50%) scaleX(-1) rotate(10deg);}
-  15%{opacity:1;}
-  85%{opacity:1;}
-  100%{right:calc(50% - 100px);opacity:1;transform:translateY(-50%) scaleX(-1) rotate(0deg);}
+  0%{right:-200px;opacity:0;transform:translateY(-50%) scaleX(-1) rotate(15deg);}
+  50%{opacity:1;}
+  100%{right:calc(50% - 12px);opacity:1;transform:translateY(-50%) scaleX(-1) rotate(0deg);}
 }
-.vel-center-glow{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-  opacity:0;animation:velGlow 0.8s ease-out 2.2s forwards;z-index:10;}
-@keyframes velGlow{0%{opacity:0;transform:translate(-50%,-50%) scale(0);}50%{opacity:1;}100%{opacity:0;transform:translate(-50%,-50%) scale(8);}}
-.collision-particles{position:absolute;inset:0;pointer-events:none;z-index:20;}
-.spark{position:absolute;border-radius:50%;opacity:0;}
-.flower-particle{position:absolute;opacity:0;}
-@keyframes flowerFall{0%{opacity:0;transform:translateY(0) rotate(0deg) scale(0);}30%{opacity:1;}100%{opacity:0;transform:translateY(80px) rotate(360deg) scale(1);}}
-.splash-text{opacity:0;animation:fadeInUp 1s ease-out 2.8s forwards;margin-top:40px;text-align:center;}
-.splash-text h1{font-family:'Cinzel Decorative',serif;font-size:clamp(1.2rem,4vw,2rem);
-  background:linear-gradient(135deg,#fff,var(--gold-lt),#fff);-webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;letter-spacing:0.1em;}
-.splash-text p{color:var(--muted);font-size:0.8rem;margin-top:8px;letter-spacing:0.15em;}
-@keyframes fadeInUp{0%{opacity:0;transform:translateY(30px);}100%{opacity:1;transform:translateY(0);}}
-.page-enter{animation:pageReveal 1s ease-out 4.5s forwards;}
+.collision-glow{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:80px;height:80px;opacity:0;animation:glowPulse 0.8s ease-out 1.8s forwards;}
+@keyframes glowPulse{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(0.2);}
+  50%{opacity:1;background:radial-gradient(circle,var(--primary-light) 0%,var(--primary) 50%,transparent 70%);}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(3);}
+}
+.sparks{position:absolute;inset:0;pointer-events:none;}
+.spark{position:absolute;width:8px;height:8px;background:var(--primary);border-radius:50%;opacity:0;}
+@keyframes sparkBurst{
+  0%{opacity:1;transform:translate(-50%,-50%) scale(0);}
+  50%{opacity:1;}
+  100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(1);}
+}
+.splash-text{opacity:0;animation:fadeInUp 1s ease-out 2.2s forwards;margin-top:30px;text-align:center;}
+.splash-text h1{font-size:clamp(1.5rem,4vw,2.5rem);font-weight:800;
+  color:var(--accent);letter-spacing:0.08em;}
+.splash-text p{color:var(--text-light);font-size:0.85rem;margin-top:8px;letter-spacing:0.2em;text-transform:uppercase;}
+@keyframes fadeInUp{0%{opacity:0;transform:translateY(20px);}100%{opacity:1;transform:translateY(0);}}
+.page-enter{animation:pageReveal 0.8s ease-out 3s forwards;}
 @keyframes pageReveal{0%{opacity:0;}100%{opacity:1;}}
+body.splash-done{opacity:0;visibility:hidden;transition:opacity 0s,visibility 0s 0s;}
+body.splash-done{opacity:1;visibility:visible;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;
+  justify-content:space-between;padding:14px 40px;background:var(--white);
+  box-shadow:var(--shadow);}
+.nav-logo{font-weight:700;font-size:1.1rem;color:var(--accent);text-decoration:none;letter-spacing:-0.02em;}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{font-size:0.85rem;font-weight:500;color:var(--text-light);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:var(--primary);}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;font-size:0.85rem;font-weight:600;
+  color:var(--white);background:var(--primary);text-decoration:none;padding:10px 20px;border-radius:8px;transition:all 0.2s;}
+.nav-cta:hover{background:var(--primary-dark);transform:translateY(-1px);}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.nav-toggle span{width:24px;height:2px;background:var(--accent);transition:0.3s;}
+
+#hero{min-height:100vh;display:flex;align-items:center;padding:120px 40px 80px;
+  background:linear-gradient(135deg,var(--bg2) 0%,var(--bg) 100%);position:relative;overflow:hidden;}
+#hero::before{content:'';position:absolute;right:-100px;top:-100px;width:500px;height:500px;
+  background:radial-gradient(circle,rgba(220,38,38,0.08) 0%,transparent 70%);border-radius:50%;}
+#hero::after{content:'';position:absolute;left:-50px;bottom:-50px;width:300px;height:300px;
+  background:radial-gradient(circle,rgba(220,38,38,0.05) 0%,transparent 70%);border-radius:50%;}
+.hero-content{max-width:600px;position:relative;z-index:1;}
+.hero-vel-left,.hero-vel-right{position:absolute;top:50%;transform:translateY(-50%);pointer-events:none;z-index:0;}
+@keyframes floatVel{
+  0%,100%{transform:translateY(-50%) translateY(0);}
+  50%{transform:translateY(-50%) translateY(-15px);}
+}
+.hero-badge{display:inline-block;font-size:0.75rem;font-weight:600;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--white);background:var(--primary);padding:6px 14px;border-radius:20px;margin-bottom:20px;}
+.hero-title{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;line-height:1.15;
+  color:var(--accent);margin-bottom:20px;letter-spacing:-0.03em;}
+.hero-title span{color:var(--primary);}
+.hero-sub{font-size:1.1rem;color:var(--text-light);margin-bottom:30px;line-height:1.7;}
+.hero-stats{display:flex;gap:40px;margin-bottom:35px;}
+.hero-stat{text-align:left;}
+.hero-stat-num{font-size:1.8rem;font-weight:700;color:var(--accent);display:block;}
+.hero-stat-label{font-size:0.8rem;color:var(--text-light);text-transform:uppercase;letter-spacing:0.05em;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.hero-btn{display:inline-flex;align-items:center;gap:10px;font-size:0.9rem;font-weight:600;
+  padding:14px 28px;border-radius:8px;text-decoration:none;transition:all 0.2s;}
+.hero-btn-primary{background:var(--primary);color:var(--white);}
+.hero-btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+.hero-btn-secondary{background:var(--white);color:var(--accent);border:2px solid var(--border);}
+.hero-btn-secondary:hover{border-color:var(--primary);color:var(--primary);}
+.hero-img{position:absolute;right:5%;top:50%;transform:translateY(-50%);max-width:45%;z-index:1;}
+
+section{padding:80px 40px;}
+.sec-label{font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--primary);margin-bottom:10px;display:block;}
+.sec-title{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;color:var(--accent);
+  margin-bottom:15px;letter-spacing:-0.02em;}
+.sec-desc{font-size:1rem;color:var(--text-light);max-width:600px;margin-bottom:40px;}
+.sec-header{text-align:center;margin-bottom:50px;}
+.sec-header .sec-desc{margin:0 auto 30px;}
+
+#about{background:var(--white);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.about-img{position:relative;}
+.about-img img{width:100%;border-radius:12px;box-shadow:var(--shadow-lg);}
+.about-img::after{content:'';position:absolute;-20px;-20px;right:20px;bottom:20px;
+  border:3px solid var(--primary);border-radius:12px;z-index:-1;}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px;}
+.about-feature{display:flex;align-items:center;gap:12px;}
+.about-feature i{width:36px;height:36px;display:flex;align-items:center;justify-content:center;
+  background:rgba(220,38,38,0.1);color:var(--primary);border-radius:8px;font-size:0.9rem;}
+.about-feature span{font-size:0.9rem;font-weight:500;color:var(--text-dark);}
+
+#brands{background:var(--bg2);}
+.brands-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:20px;}
+.brand-card{background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:24px 16px;text-align:center;transition:all 0.3s;}
+.brand-card:hover{border-color:var(--primary);transform:translateY(-3px);box-shadow:var(--shadow-lg);}
+.brand-card h4{font-size:0.85rem;font-weight:600;color:var(--accent);margin-bottom:4px;}
+.brand-card p{font-size:0.75rem;color:var(--text-light);}
+
+#products{background:var(--white);}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+.product-card{background:var(--white);border:1px solid var(--border);border-radius:12px;
+  overflow:hidden;transition:all 0.3s;}
+.product-card:hover{border-color:var(--primary);transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.product-img{height:180px;background:var(--bg3);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.product-img img{width:100%;height:100%;object-fit:cover;}
+.product-img i{font-size:3rem;color:var(--primary);opacity:0.3;}
+.product-body{padding:24px;}
+.product-body h3{font-size:1.1rem;font-weight:600;color:var(--accent);margin-bottom:8px;}
+.product-body p{font-size:0.85rem;color:var(--text-light);margin-bottom:12px;line-height:1.6;}
+.product-price{font-size:1rem;font-weight:700;color:var(--primary);margin-bottom:14px;}
+.product-btn{width:100%;padding:12px;border-radius:8px;background:var(--primary);color:var(--white);
+  font-size:0.85rem;font-weight:600;border:none;cursor:pointer;transition:all 0.2s;
+  display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;}
+.product-btn:hover{background:var(--primary-dark);}
+
+#gen1products{background:var(--bg2);}
+#gen1products .product-card{background:var(--white);}
+
+#services{background:var(--bg2);}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;}
+.service-card{background:var(--white);border:1px solid var(--border);border-radius:12px;
+  padding:32px 24px;text-align:center;transition:all 0.3s;}
+.service-card:hover{border-color:var(--primary);transform:translateY(-3px);box-shadow:var(--shadow-lg);}
+.service-icon{width:64px;height:64px;margin:0 auto 18px;background:rgba(220,38,38,0.1);
+  border-radius:16px;display:flex;align-items:center;justify-content:center;}
+.service-icon i{font-size:1.6rem;color:var(--primary);}
+.service-card h3{font-size:1rem;font-weight:600;color:var(--accent);margin-bottom:10px;}
+.service-card p{font-size:0.85rem;color:var(--text-light);}
+
+#gallery{background:var(--white);}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+.gallery-item{position:relative;overflow:hidden;border-radius:10px;aspect-ratio:4/3;
+  cursor:pointer;border:1px solid var(--border);transition:all 0.3s;}
+.gallery-item:hover{border-color:var(--primary);}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s;}
+.gallery-item:hover img{transform:scale(1.08);}
+.gallery-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(15,23,42,0.5);opacity:0;transition:opacity 0.3s;}
+.gallery-item:hover .gallery-overlay{opacity:1;}
+.gallery-overlay i{font-size:1.2rem;color:var(--white);}
+
+#finder{background:var(--bg2);}
+.product-finder{max-width:700px;margin:0 auto;background:var(--white);border:1px solid var(--border);
+  border-radius:12px;padding:36px;}
+.finder-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px;}
+.finder-group label{display:block;font-weight:600;margin-bottom:8px;color:var(--accent);font-size:0.85rem;}
+.finder-group select{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:8px;
+  font-family:'Inter',sans-serif;font-size:0.9rem;background:var(--white);color:var(--text-dark);
+  cursor:pointer;transition:border-color 0.2s;}
+.finder-group select:focus{outline:none;border-color:var(--primary);}
+.finder-group select:disabled{background:var(--bg3);cursor:not-allowed;}
+.finder-result{padding:20px;background:var(--bg2);border:1px solid var(--border);
+  border-radius:8px;margin-bottom:20px;text-align:center;}
+.finder-result h4{color:var(--accent);font-size:1rem;margin-bottom:6px;}
+.finder-result p{color:var(--text-light);font-size:0.85rem;}
+.enquire-finder-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;padding:14px;border-radius:8px;background:var(--primary);color:var(--white);
+  font-size:0.9rem;font-weight:600;text-decoration:none;transition:all 0.2s;}
+.enquire-finder-btn:hover{background:var(--primary-dark);}
+
+#contact{background:var(--accent);color:var(--white);}
+#contact .sec-label{color:var(--primary-light);}
+#contact .sec-title{color:var(--white);}
+.contact-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;}
+.contact-btn{padding:14px 28px;border-radius:8px;font-size:0.85rem;font-weight:600;
+  text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all 0.2s;}
+.call-btn{background:var(--primary);color:var(--white);}
+.call-btn:hover{background:var(--primary-dark);transform:translateY(-2px);}
+.whatsapp-btn{background:#25D366;color:var(--white);}
+.whatsapp-btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(37,211,102,0.3);}
+.business-hours{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);
+  border-radius:12px;padding:28px 40px;display:inline-block;margin-bottom:30px;}
+.business-hours h3{font-size:1.1rem;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:10px;}
+.business-hours p{font-size:1.4rem;font-weight:700;}
+.business-hours .note{font-size:0.8rem;opacity:0.7;margin-top:8px;}
+.address-row{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-bottom:30px;}
+.address-item{display:flex;align-items:center;gap:10px;font-size:0.95rem;opacity:0.9;}
+.address-item i{color:var(--primary-light);}
+.address-item a{color:var(--primary-light);text-decoration:none;}
+.address-item a:hover{text-decoration:underline;}
+.map-container{max-width:900px;margin:0 auto;border-radius:12px;overflow:hidden;
+  box-shadow:var(--shadow-lg);border:2px solid rgba(255,255,255,0.1);}
+.map-container iframe{width:100%;height:350px;border:none;display:block;}
+
+footer{background:#0a0f1a;padding:50px 40px 30px;border-top:1px solid rgba(255,255,255,0.05);}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;
+  max-width:1000px;margin:0 auto 30px;}
+.footer-col h3{font-size:1rem;color:var(--white);margin-bottom:18px;padding-bottom:10px;
+  border-bottom:2px solid var(--primary);}
+.footer-col p{color:rgba(255,255,255,0.6);line-height:1.8;font-size:0.9rem;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:10px;}
+.footer-col ul li a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.9rem;
+  transition:color 0.2s;}
+.footer-col ul li a:hover{color:var(--primary-light);}
+.footer-contact{display:flex;flex-direction:column;gap:14px;}
+.footer-contact-item{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.6);font-size:0.9rem;}
+.footer-contact-item i{color:var(--primary-light);width:18px;}
+.footer-contact-item a{color:rgba(255,255,255,0.6);text-decoration:none;}
+.footer-contact-item a:hover{color:var(--primary-light);}
+.footer-social{display:flex;gap:10px;margin-top:16px;}
+.footer-social a{width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,0.08);
+  display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1rem;
+  transition:all 0.2s;}
+.footer-social a:hover{background:var(--primary);transform:translateY(-2px);}
+.footer-bottom{text-align:center;padding-top:25px;border-top:1px solid rgba(255,255,255,0.05);}
+.footer-bottom p{font-size:0.8rem;color:rgba(255,255,255,0.4);}
+
+.call-buttons-fixed{position:fixed;bottom:25px;right:25px;display:flex;flex-direction:column;gap:10px;z-index:1000;}
+.call-btn-fix{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  color:var(--white);text-decoration:none;box-shadow:var(--shadow-lg);transition:all 0.2s;}
+.call-btn-fix:hover{transform:scale(1.1);}
+.phone-fix{background:var(--primary);}
+.whatsapp-fix{background:#25D366;}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.reveal.on{opacity:1;transform:translateY(0);}
+
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr;gap:40px;}
+  .hero-img{display:none;}
+  #hero{justify-content:center;}
+  .hero-content{text-align:center;max-width:100%;}
+  .hero-stats{justify-content:center;}
+  .hero-btns{justify-content:center;}
+}
+@media(max-width:768px){
+  nav{padding:12px 20px;}
+  .nav-links{display:none;}
+  .nav-toggle{display:flex;}
+  #hero{padding:100px 20px 60px;}
+  section{padding:60px 20px;}
+  .hero-stats{gap:25px;}
+  .finder-row{grid-template-columns:1fr;}
+  .product-finder{padding:24px;}
+  .about-features{grid-template-columns:1fr;}
+}
+@media(max-width:480px){
+  .hero-title{font-size:2rem;}
+  .hero-btns{flex-direction:column;}
+  .hero-btn{width:100%;justify-content:center;}
+  .hero-stats{flex-direction:column;gap:15px;}
+  .business-hours{padding:20px 28px;}
+  .contact-buttons{flex-direction:column;align-items:center;}
+}
 </style>
 </head>
-<body>
+<body class="page-enter">
 
 <!-- SPLASH SCREEN -->
 <div id="splash">
   <div class="vel-container">
-    <!-- Left Vel -->
-    <img class="vel-splash vel-left-splash" src="https://raw.githubusercontent.com/KarthikeyanS2006/Karthika-Two-wheelers/main/assets/vector-illustration-lord-murugan-spear-transparent-background_181203-35133-removebg-preview.png" alt="Vel" onerror="this.style.display='none'">
-
-    <!-- Right Vel (mirrored) -->
-    <img class="vel-splash vel-right-splash" src="https://raw.githubusercontent.com/KarthikeyanS2006/Karthika-Two-wheelers/main/assets/vector-illustration-lord-murugan-spear-transparent-background_181203-35133-removebg-preview.png" alt="Vel" onerror="this.style.display='none'">
-
-    <!-- Center collision glow -->
-    <div class="vel-center-glow">
-      <svg width="100" height="100" viewBox="0 0 100 100">
-        <defs>
-          <radialGradient id="centerGlow"><stop offset="0%" stop-color="#FFD700"/><stop offset="30%" stop-color="#C9A84C"/><stop offset="100%" stop-color="transparent"/></radialGradient>
-        </defs>
-        <circle cx="50" cy="50" r="50" fill="url(#centerGlow)"/>
-      </svg>
-    </div>
-
-    <!-- Collision particles -->
-    <div class="collision-particles" id="collisionParticles"></div>
+    <img class="vel-splash vel-left-splash" src="https://github.com/KarthikeyanS2006/Karthika-Two-wheelers/blob/main/assets/vector-illustration-lord-murugan-spear-transparent-background_181203-35133-removebg-preview.png?raw=true" alt="Vel" onerror="this.style.display='none'">
+    <img class="vel-splash vel-right-splash" src="https://github.com/KarthikeyanS2006/Karthika-Two-wheelers/blob/main/assets/vector-illustration-lord-murugan-spear-transparent-background_181203-35133-removebg-preview.png?raw=true" alt="Vel" onerror="this.style.display='none'">
+    <div class="collision-glow"></div>
+    <div class="sparks" id="sparks"></div>
   </div>
-
   <div class="splash-text">
     <h1>KARTHIKA TWO WHEELERS</h1>
-    <p>AUTO PARTS & ACCESSORIES</p>
+    <p>Auto Parts & Accessories</p>
   </div>
 </div>
 
 <script>
-// Splash screen particle generation
 (function(){
-  var container=document.getElementById('collisionParticles');
-  var colors=['#C9A84C','#E8C97A','#FFF8E7','#FFD700','#FF6B35','#fff'];
-  for(var i=0;i<40;i++){
+  var container=document.getElementById('sparks');
+  for(var i=0;i<20;i++){
     var spark=document.createElement('div');
     spark.className='spark';
-    var size=3+Math.random()*8;
-    spark.style.cssText='width:'+size+'px;height:'+size+'px;';
-    spark.style.left='50%';
-    spark.style.top='50%';
     var angle=Math.random()*360;
-    var dist=50+Math.random()*150;
-    var delay=2.3+Math.random()*0.5;
+    var dist=60+Math.random()*80;
     var x=Math.cos(angle*Math.PI/180)*dist;
     var y=Math.sin(angle*Math.PI/180)*dist;
-    spark.style.background=colors[Math.floor(Math.random()*colors.length)];
-    spark.style.animation='sparkBurst 1.5s ease-out '+delay+'s forwards';
+    spark.style.cssText='left:50%;top:50%;background:var(--primary);animation:sparkBurst 1s ease-out '+(1.5+Math.random()*0.5)+'s forwards;';
     spark.style.setProperty('--tx',x+'px');
     spark.style.setProperty('--ty',y+'px');
-    spark.animate([{transform:'translate(-50%,-50%) scale(0)',opacity:1},{transform:'translate(calc(-50% + '+x+'px),calc(-50% + '+y+'px)) scale(1)',opacity:0.5},{transform:'translate(calc(-50% + '+x+'px),calc(-50% + '+y+'px)) scale(0)',opacity:0}],{duration:1500,delay:delay*1000,easing:'ease-out',fill:'forwards'});
     container.appendChild(spark);
   }
-  // Flower particles
-  for(var j=0;j<20;j++){
-    var flower=document.createElement('div');
-    flower.className='flower-particle';
-    flower.innerHTML='&#10047;';
-    flower.style.cssText='font-size:'+(12+Math.random()*16)+'px;color:'+colors[Math.floor(Math.random()*colors.length)]+';left:'+(20+Math.random()*60)+'%;top:'+(20+Math.random()*60)+'%;animation-delay:'+(2.5+Math.random()*1)+'s;';
-    container.appendChild(flower);
-  }
-  // Remove splash after animation
   setTimeout(function(){
     var splash=document.getElementById('splash');
     splash.style.transition='opacity 0.8s ease';
     splash.style.opacity='0';
-    setTimeout(function(){splash.style.display='none';},800);
-  },5000);
+    setTimeout(function(){splash.style.display='none';document.body.classList.add('splash-done');},800);
+  },4000);
 })();
 </script>
 
-/* HERO VEL DECORATIONS */
-.hero-vel-left,.hero-vel-right{position:absolute;width:80px;height:auto;top:50%;transform:translateY(-50%);opacity:0.5;
-  z-index:3;pointer-events:none;}
-.hero-vel-left{left:2%;}
-.hero-vel-right{right:2%;}
-@media(max-width:768px){.hero-vel-left,.hero-vel-right{width:50px;opacity:0.4;}}
-@media(max-width:480px){.hero-vel-left,.hero-vel-right{width:35px;opacity:0.3;}}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;
-  justify-content:space-between;padding:12px 24px;
-  background:rgba(8,12,18,0.92);backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);}
-.nav-logo{font-family:'Cinzel Decorative',serif;font-size:0.8rem;color:var(--gold);
-  letter-spacing:0.04em;text-decoration:none;white-space:nowrap;}
-.nav-links{display:flex;gap:16px;list-style:none;flex-wrap:nowrap;overflow:hidden;}
-.nav-links a{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;
-  color:var(--muted);text-decoration:none;transition:color .25s;}
-.nav-links a:hover{color:var(--gold);}
-.nav-cta{display:inline-flex;align-items:center;gap:6px;font-size:0.65rem;
-  letter-spacing:0.1em;color:var(--gold-lt);text-decoration:none;
-  border:1px solid var(--border);padding:6px 12px;border-radius:30px;transition:all .3s;white-space:nowrap;}
-.nav-cta:hover{background:var(--gold);color:var(--bg);border-color:var(--gold);}
-
-/* HERO */
-#hero{min-height:90vh;display:flex;flex-direction:column;align-items:center;
-  justify-content:center;text-align:center;padding:100px 24px 60px;
-  position:relative;overflow:hidden;
-  background:linear-gradient(180deg,rgba(8,12,18,0.9) 0%,rgba(13,0,5,0.85) 40%,rgba(61,0,0,0.75) 70%,rgba(107,15,26,0.85) 100%),
-  url('https://d35xcwcl37xo08.cloudfront.net/current-affairs-wp-uploads/2025/04/motogp.jpg') center/cover no-repeat fixed;}
-#hero::before{content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 60%,rgba(192,57,43,0.25) 0%,transparent 65%);
-  pointer-events:none;}
-.hero-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
-.particle{position:absolute;border-radius:50%;background:rgba(201,168,76,0.6);
-  animation:pFloat linear infinite;}
-@keyframes pFloat{
-  0%{transform:translateY(100vh) rotate(0deg);opacity:0;}
-  10%{opacity:1;}90%{opacity:0.5;}
-  100%{transform:translateY(-40px) rotate(720deg);opacity:0;}
-}
-.hero-badge{font-size:0.6rem;letter-spacing:0.45em;text-transform:uppercase;
-  color:var(--gold);border:1px solid var(--border);padding:6px 18px;
-  border-radius:30px;margin-bottom:28px;display:inline-block;}
-.hero-title{font-family:'Cinzel Decorative',serif;font-size:clamp(1.8rem,5.5vw,4rem);
-  font-weight:700;letter-spacing:0.06em;line-height:1.2;margin-bottom:10px;
-  background:linear-gradient(135deg,#fff 0%,var(--gold-lt) 50%,#fff 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero-sub{font-size:clamp(0.88rem,2vw,1.1rem);color:var(--muted);line-height:1.85;
-  max-width:560px;margin:0 auto 28px;font-weight:300;}
-.hero-by{display:inline-flex;align-items:center;gap:8px;font-size:0.75rem;
-  letter-spacing:0.12em;color:var(--muted);margin-bottom:40px;}
-.hero-cta{display:inline-flex;align-items:center;gap:10px;
-  background:linear-gradient(135deg,var(--gold),var(--gold-lt));
-  color:var(--bg);font-size:0.75rem;font-weight:600;letter-spacing:0.18em;
-  text-transform:uppercase;padding:15px 34px;border-radius:4px;
-  text-decoration:none;transition:all .3s;
-  box-shadow:0 8px 28px rgba(201,168,76,0.28);}
-.hero-cta:hover{transform:translateY(-3px);box-shadow:0 14px 38px rgba(201,168,76,0.42);}
-
-/* SECTIONS */
-section{padding:90px 24px;overflow:visible;}
-.sec-inner{max-width:980px;margin:0 auto;}
-.sec-label{font-size:0.56rem;letter-spacing:0.55em;text-transform:uppercase;
-  color:var(--gold);opacity:0.72;margin-bottom:10px;display:block;}
-.sec-title{font-family:'Cinzel Decorative',serif;font-size:clamp(1.6rem,4vw,2.8rem);
-  font-weight:700;letter-spacing:0.06em;color:var(--white);line-height:1.2;margin-bottom:14px;}
-.sec-desc{font-size:0.9rem;color:var(--muted);line-height:1.85;
-  max-width:600px;margin-bottom:50px;font-weight:300;}
-.gold-rule{width:50px;height:1.5px;
-  background:linear-gradient(90deg,var(--gold),var(--gold-lt),var(--gold));
-  margin:0 auto 52px;}
-
-/* BRANDS GRID */
-.brands-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px;}
-.brand-card{background:var(--card);border:1px solid var(--border);border-radius:8px;
-  padding:30px 20px;text-align:center;transition:all .32s;}
-.brand-card:hover{border-color:rgba(201,168,76,0.45);transform:translateY(-5px);
-  box-shadow:0 18px 55px rgba(0,0,0,0.38);}
-.brand-card img{height:45px;max-width:90px;object-fit:contain;margin-bottom:14px;
-  filter:grayscale(0.2) brightness(0.9);transition:filter .3s;}
-.brand-card:hover img{filter:none;}
-.brand-card h4{font-family:'Cinzel',serif;font-size:0.82rem;letter-spacing:0.12em;
-  color:var(--gold-lt);margin-bottom:4px;font-weight:600;}
-.brand-card p{font-size:0.72rem;color:var(--muted);}
-
-/* PRODUCTS GRID */
-.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
-.product-card{background:var(--card);border:1px solid var(--border);border-radius:8px;
-  overflow:hidden;transition:all .32s;position:relative;}
-.product-card:hover{border-color:rgba(201,168,76,0.4);transform:translateY(-5px);
-  box-shadow:0 18px 55px rgba(0,0,0,0.4);}
-.product-img{height:180px;display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,#1a0808,#2a1010);overflow:hidden;}
-.product-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
-.product-card:hover .product-img img{transform:scale(1.08);}
-.product-img i{font-size:3.5rem;color:var(--gold);opacity:0.3;}
-.product-body{padding:22px;}
-.product-body h3{font-family:'Cinzel',serif;font-size:1rem;letter-spacing:0.1em;
-  color:var(--gold-lt);margin-bottom:8px;font-weight:600;}
-.product-body p{font-size:0.82rem;color:var(--muted);line-height:1.7;margin-bottom:12px;}
-.product-price{font-family:'Cinzel',serif;font-size:1rem;font-weight:700;
-  color:var(--gold);margin-bottom:14px;}
-.product-btn{width:100%;padding:11px;border-radius:4px;
-  background:linear-gradient(135deg,var(--vermilion),var(--deep-red));
-  color:var(--white);font-size:0.75rem;font-weight:600;letter-spacing:0.1em;
-  text-transform:uppercase;border:none;cursor:pointer;transition:all .3s;
-  display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;}
-.product-btn:hover{transform:scale(1.02);box-shadow:0 8px 25px rgba(192,57,43,0.4);}
-
-/* SERVICES GRID */
-.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
-.service-card{background:var(--card);border:1px solid var(--border);border-radius:8px;
-  padding:32px 24px;text-align:center;transition:all .3s;}
-.service-card:hover{border-color:rgba(201,168,76,0.35);
-  background:rgba(255,255,255,0.05);transform:translateY(-4px);}
-.service-icon{width:70px;height:70px;margin:0 auto 18px;
-  background:linear-gradient(135deg,var(--vermilion),var(--deep-red));
-  border-radius:50%;display:flex;align-items:center;justify-content:center;}
-.service-icon i{font-size:1.8rem;color:var(--gold);}
-.service-card h3{font-family:'Cinzel',serif;font-size:0.82rem;letter-spacing:0.12em;
-  color:var(--gold-lt);margin-bottom:9px;font-weight:600;}
-.service-card p{font-size:0.8rem;color:var(--muted);line-height:1.7;}
-
-/* GALLERY GRID */
-.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
-.gallery-item{position:relative;overflow:hidden;border-radius:8px;
-  background:#1a0a0a;min-height:200px;cursor:pointer;
-  border:1px solid var(--border);transition:all .3s;}
-.gallery-item:hover{border-color:var(--gold);}
-.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;
-  transition:transform .4s;}
-.gallery-item:hover img{transform:scale(1.08);}
-.gallery-overlay{position:absolute;inset:0;
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(0,0,0,0.5);color:var(--gold);opacity:0;transition:opacity .3s;
-  font-size:1.3rem;}
-.gallery-item:hover .gallery-overlay{opacity:1;}
-
-/* DETAILS GRID */
-.details-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;}
-.detail-card{background:var(--card);border:1px solid var(--border);border-radius:8px;
-  padding:28px 20px;text-align:center;transition:all .3s;}
-.detail-card:hover{border-color:var(--gold);transform:translateY(-4px);}
-.detail-icon{font-size:1.8rem;color:var(--gold);margin-bottom:12px;display:block;}
-.detail-label{font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.35em;
-  text-transform:uppercase;color:var(--gold);opacity:0.7;margin-bottom:8px;}
-.detail-value{font-family:'Philosopher',serif;font-size:1rem;color:var(--white);margin-bottom:6px;}
-.detail-sub{font-size:0.78rem;color:var(--muted);line-height:1.7;}
-
-/* ENQUIRY FORM */
-.enquiry-form{max-width:600px;margin:0 auto;background:var(--card);
-  border:1px solid var(--border);border-radius:10px;padding:40px;}
-.form-group{margin-bottom:18px;}
-.form-group label{display:block;font-weight:600;margin-bottom:7px;
-  color:var(--gold-lt);font-size:0.85rem;}
-.form-group input,.form-group textarea,.form-group select{width:100%;padding:13px 15px;
-  border:1px solid var(--border);border-radius:6px;
-  font-family:'Inter',sans-serif;font-size:0.9rem;
-  background:rgba(255,255,255,0.04);color:var(--white);
-  transition:border-color .3s;}
-.form-group input:focus,.form-group textarea:focus,.form-group select:focus{
-  outline:none;border-color:var(--gold);}
-.form-group textarea{resize:vertical;min-height:100px;}
-.submit-btn{width:100%;padding:14px;border-radius:4px;
-  background:linear-gradient(135deg,var(--vermilion),var(--deep-red));
-  color:var(--white);font-family:'Inter',sans-serif;font-size:0.85rem;
-  font-weight:700;letter-spacing:0.1em;cursor:pointer;border:none;
-  transition:all .3s;display:flex;align-items:center;justify-content:center;gap:10px;}
-.submit-btn:hover{transform:scale(1.02);box-shadow:0 10px 30px rgba(192,57,43,0.35);}
-
-/* CONTACT SECTION */
-#contact{background:linear-gradient(180deg,var(--deep-red) 0%,#1a0005 100%);}
-.contact-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;}
-.contact-btn{padding:14px 28px;border-radius:999px;font-size:0.75rem;
-  font-weight:600;letter-spacing:0.12em;text-decoration:none;
-  display:inline-flex;align-items:center;gap:10px;transition:all .3s;}
-.call-btn{background:linear-gradient(135deg,var(--gold),#b8820a);color:var(--deep-red);}
-.call-btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(201,148,42,0.35);}
-.whatsapp-btn{background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;}
-.whatsapp-btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,0.35);}
-.business-hours{background:rgba(255,255,255,0.05);border:1px solid var(--border);
-  border-radius:16px;padding:28px 40px;display:inline-block;margin-bottom:30px;}
-.business-hours h3{font-family:'Cinzel',serif;font-size:1.2rem;letter-spacing:0.15em;
-  color:var(--gold);margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:10px;}
-.business-hours p{font-size:1.4rem;font-weight:700;color:var(--white);}
-.business-hours .note{font-size:0.82rem;color:var(--muted);margin-top:8px;}
-.address-row{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-bottom:20px;}
-.address-item{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:0.9rem;}
-.address-item i{color:var(--gold);}
-.address-item a{color:var(--gold);text-decoration:none;transition:color .3s;}
-.address-item a:hover{color:var(--gold-lt);}
-.map-container{max-width:900px;margin:0 auto;border-radius:12px;overflow:hidden;
-  box-shadow:0 20px 50px rgba(0,0,0,0.5);border:2px solid var(--border);}
-.map-container iframe{width:100%;height:350px;border:none;display:block;}
-
-/* FOOTER */
-footer{background:#020408;padding:60px 24px 40px;
-  border-top:1px solid rgba(201,168,76,0.07);}
-.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:40px;max-width:1100px;margin:0 auto 40px;}
-.footer-col h3{font-family:'Cinzel Decorative',serif;font-size:1rem;
-  color:var(--gold);margin-bottom:18px;position:relative;padding-bottom:10px;}
-.footer-col h3::after{content:'';position:absolute;bottom:0;left:0;
-  width:40px;height:2px;background:var(--gold);}
-.footer-col p{color:var(--muted);line-height:1.8;font-size:0.88rem;}
-.footer-col ul{list-style:none;}
-.footer-col ul li{margin-bottom:10px;}
-.footer-col ul li a{color:var(--muted);text-decoration:none;font-size:0.88rem;
-  transition:color .3s;display:block;}
-.footer-col ul li a:hover{color:var(--gold);}
-.footer-contact{display:flex;flex-direction:column;gap:12px;}
-.footer-contact-item{display:flex;align-items:center;gap:10px;
-  color:var(--muted);font-size:0.88rem;}
-.footer-contact-item i{color:var(--gold);width:16px;text-align:center;}
-.footer-contact-item a{color:var(--muted);text-decoration:none;transition:color .3s;}
-.footer-contact-item a:hover{color:var(--gold);}
-.footer-social{display:flex;gap:10px;margin-top:16px;}
-.footer-social a{width:40px;height:40px;border-radius:50%;
-  background:rgba(255,255,255,0.05);border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--gold);font-size:1rem;transition:all .3s;}
-.footer-social a:hover{background:var(--gold);color:var(--bg);}
-.footer-bottom{text-align:center;padding-top:28px;
-  border-top:1px solid rgba(201,168,76,0.07);}
-.footer-bottom p{font-size:0.72rem;color:#2A2A2A;letter-spacing:0.1em;}
-
-/* GOOGLE TRANSLATE */
-.translate-wrapper{position:fixed;top:14px;right:160px;z-index:1001;
-  background:rgba(8,12,18,0.92);backdrop-filter:blur(8px);
-  border:1px solid rgba(201,168,76,0.3);border-radius:20px;padding:6px 10px;
-  display:flex;align-items:center;gap:8px;}
-.goog-te-gadget{font-size:11px!important;display:flex!important;align-items:center!important;gap:6px!important;}
-.goog-te-gadget span{display:none!important;}
-.goog-te-combo{
-  background:#111!important;border:1px solid rgba(201,168,76,0.4)!important;
-  color:var(--gold)!important;border-radius:12px!important;
-  padding:5px 28px 5px 10px!important;font-size:12px!important;
-  cursor:pointer!important;font-family:'Inter',sans-serif!important;
-  appearance:none!important;-webkit-appearance:none!important;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23C9A84C' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L1 4h14z'/%3E%3C/svg%3E")!important;
-  background-repeat:no-repeat!important;background-position:right 8px center!important;}
-.goog-te-combo:hover{border-color:var(--gold)!important;}
-.goog-te-combo option{background:#111!important;color:#fff!important;padding:8px!important;}
-.goog-te-banner-frame,.goog-te-balloon-frame{display:none!important;}
-.VIpgJd-ZViAf,#goog-gt-pym,.goog-te-tooltip{display:none!important;}
-#goog-gt-tt{display:none!important;}
-.goog-logo-link{display:none!important;}
-.goog-te-gadget>div{display:none!important;}
-
-/* CALL BUTTONS */
-.call-buttons-fixed{position:fixed;bottom:25px;right:25px;
-  display:flex;flex-direction:column;gap:10px;z-index:1000;}
-.call-btn-fix{width:54px;height:54px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,.3);
-  animation:pulse 2s infinite;}
-.phone-fix{background:linear-gradient(135deg,var(--vermilion),var(--deep-red));}
-.whatsapp-fix{background:linear-gradient(135deg,#25D366,#128C7E);}
-.call-btn-fix:hover{transform:scale(1.1);}
-@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
-
-/* FLOATING ICONS */
-.floating-icons{position:fixed;top:0;left:0;width:100%;height:100%;
-  pointer-events:none;z-index:50;overflow:hidden;}
-.float-icon{position:absolute;opacity:.5;color:var(--gold);
-  animation:floatRot 6s ease-in-out infinite;}
-@keyframes floatRot{0%{transform:translateY(0) translateX(0) rotate(0deg);}
-  50%{transform:translateY(-20px) translateX(10px) rotate(180deg);}
-  100%{transform:translateY(0) translateX(0) rotate(360deg);}}
-
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(28px);
-  transition:opacity .6s ease,transform .6s ease;}
-.reveal.on{opacity:1;transform:translateY(0);}
-.reveal.d1{transition-delay:.05s;}.reveal.d2{transition-delay:.1s;}
-.reveal.d3{transition-delay:.15s;}.reveal.d4{transition-delay:.2s;}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  #hero{background-attachment:scroll;}
-  nav{padding:12px 16px;}
-  .nav-links{display:none;}
-  .hero-title{font-size:clamp(1.8rem,8vw,3rem);}
-  section{padding:60px 16px;}
-  #hero > div[style]{padding:24px 20px!important;}
-  .products-grid,.brands-grid,.services-grid,.gallery-grid,.details-grid{grid-template-columns:1fr 1fr;}
-  .product-img{height:140px;}
-  .enquiry-form{padding:24px 18px;}
-  .map-container iframe{height:250px;}
-  .translate-wrapper{top:auto;bottom:95px;right:15px;left:auto;}
-  .call-buttons-fixed{bottom:20px;right:15px;flex-direction:row;}
-  .call-btn-fix{width:48px;height:48px;}
-}
-@media(max-width:480px){
-  .products-grid,.brands-grid,.services-grid,.details-grid{grid-template-columns:1fr;}
-  .hero-title{font-size:clamp(1.6rem,9vw,2.5rem);}
-  .contact-buttons{flex-direction:column;align-items:center;}
-  .contact-btn{padding:12px 24px;font-size:0.7rem;}
-}
-</style>
-</head>
-<body>
-
 <!-- Progress bar -->
-<div id="progress-bar" style="position:fixed;top:0;left:0;height:3px;width:0%;
-  background:linear-gradient(90deg,var(--gold),var(--vermilion),var(--gold));
-  z-index:9999;"></div>
-
-<!-- Google Translate -->
-<div class="translate-wrapper">
-  <i class="fas fa-globe" style="color:var(--gold);font-size:0.8rem;"></i>
-  <div id="google_translate_element"></div>
-</div>
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,ta'}, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<div id="progress-bar" style="position:fixed;top:0;left:0;height:3px;width:0%;background:var(--primary);z-index:9999;"></div>
 
 <!-- Call Buttons Fixed -->
 <div class="call-buttons-fixed">
-  <a class="call-btn-fix phone-fix" href="tel:7358990541" title="Call 7358990541">
+  <a class="call-btn-fix phone-fix" href="tel:7358990541, 9629336281" title="Call 7358990541, 9629336281">
     <i class="fas fa-phone"></i>
   </a>
-  <a class="call-btn-fix whatsapp-fix" href="https://wa.me/917358990541?text=Hi%20Karthika%20Two%20Wheelers%2C%20I%20need%20enquiry%20about%20your%20products" target="_blank" title="WhatsApp">
+  <a class="call-btn-fix whatsapp-fix" href="https://wa.me/919629336281, 9629336281?text=Hi%20Karthika%20Two%20Wheelers%2C%20I%20need%20enquiry%20about%20your%20products" target="_blank" title="WhatsApp">
     <i class="fab fa-whatsapp" style="font-size:1.4rem;"></i>
   </a>
-</div>
-
-<!-- Floating Icons -->
-<div class="floating-icons" id="floatingIcons">
-  <div class="float-icon" style="top:80px;left:4%;animation-duration:9s;">
-    <i class="fas fa-cog" style="font-size:2rem;"></i>
-  </div>
-  <div class="float-icon" style="top:160px;left:90%;animation-duration:11s;">
-    <i class="fas fa-wrench" style="font-size:1.8rem;"></i>
-  </div>
-  <div class="float-icon" style="top:300px;left:8%;animation-duration:8s;">
-    <i class="fas fa-oil-can" style="font-size:1.6rem;"></i>
-  </div>
-  <div class="float-icon" style="top:450px;left:85%;animation-duration:10s;">
-    <i class="fas fa-motorcycle" style="font-size:2rem;"></i>
-  </div>
-  <div class="float-icon" style="top:600px;left:15%;animation-duration:12s;">
-    <i class="fas fa-bolt" style="font-size:1.5rem;"></i>
-  </div>
 </div>
 
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="#">KARTHIKA TWO WHEELERS</a>
   <ul class="nav-links">
-        <li><a href="#hero">Home</a></li>
+    <li><a href="#hero">Home</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#products">Products</a></li>
+<li><a href="#gen1products">Polishes</a></li>
+        <li><a href="#finder">Product Finder</a></li>
     <li><a href="#brands">Brands</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a class="nav-cta" href="tel:7358990541">
+  <a class="nav-cta" href="tel:7358990541, 9629336281">
     <i class="fas fa-phone"></i> Call Now
   </a>
+  <div class="nav-toggle">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-particles" id="prtcls"></div>
-  
-  <!-- Hero Vel Decorations -->
-  <img class="hero-vel-left" src="https://raw.githubusercontent.com/KarthikeyanS2006/Karthika-Two-wheelers/main/assets/vector-illustration-lord-murugan-spear-transparent-background_181203-35133-removebg-preview.png" alt="Vel">
-  <img class="hero-vel-right" src="https://raw.githubusercontent.com/KarthikeyanS2006/Karthika-Two-wheelers/main/assets/vector-illustration-lord-murugan-spear-transparent-background_181203-35133-removebg-preview.png" alt="Vel">
-  
-  <!-- Animated Motorcycle SVG -->
-  <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);
-    width:min(600px,90vw);z-index:2;opacity:0.06;pointer-events:none;">
-    <svg viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="mbg" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#C9A84C"/>
-          <stop offset="100%" stop-color="#8B6914"/>
-        </linearGradient>
-        <linearGradient id="mwg" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#333"/>
-          <stop offset="100%" stop-color="#111"/>
-        </linearGradient>
-      </defs>
-      <!-- Wheels -->
-      <circle cx="110" cy="200" r="55" fill="none" stroke="url(#mwg)" stroke-width="14"/>
-      <circle cx="110" cy="200" r="40" fill="none" stroke="#555" stroke-width="3"/>
-      <circle cx="110" cy="200" r="14" fill="#C9A84C"/>
-      <circle cx="390" cy="200" r="55" fill="none" stroke="url(#mwg)" stroke-width="14"/>
-      <circle cx="390" cy="200" r="40" fill="none" stroke="#555" stroke-width="3"/>
-      <circle cx="390" cy="200" r="14" fill="#C9A84C"/>
-      <!-- Frame -->
-      <path d="M110 200 L170 140 L330 140 L390 200" fill="none" stroke="url(#mbg)" stroke-width="18" stroke-linecap="round"/>
-      <path d="M170 140 L190 95 L270 95 L290 140" fill="url(#mbg)"/>
-      <!-- Tank -->
-      <ellipse cx="230" cy="110" rx="55" ry="22" fill="url(#mbg)"/>
-      <!-- Seat -->
-      <path d="M170 120 Q210 90 260 95 L285 120 Q235 135 170 120" fill="#3D0000"/>
-      <!-- Headlight -->
-      <ellipse cx="360" cy="130" rx="18" ry="22" fill="#FFD700"/>
-      <ellipse cx="360" cy="130" rx="10" ry="13" fill="#FFFDE7"/>
-      <!-- Exhaust -->
-      <path d="M130 185 L90 195 L70 215" fill="none" stroke="#888" stroke-width="10" stroke-linecap="round"/>
-      <!-- Engine -->
-      <rect x="150" y="150" width="70" height="45" rx="8" fill="#3D0000"/>
-      <rect x="160" y="160" width="22" height="28" rx="4" fill="#555"/>
-      <!-- Speedometer -->
-      <circle cx="300" cy="105" r="12" fill="#111"/>
-      <circle cx="300" cy="105" r="8" fill="#C9A84C"/>
-      <!-- Fork -->
-      <line x1="335" y1="115" x2="390" y2="200" stroke="#444" stroke-width="9"/>
-      <line x1="325" y1="115" x2="390" y2="200" stroke="#444" stroke-width="5"/>
-      <!-- Suspension -->
-      <path d="M195 125 Q175 170 145 190" fill="none" stroke="#444" stroke-width="7"/>
-      <!-- Mudguards -->
-      <path d="M110 145 Q110 165 110 200" fill="none" stroke="url(#mbg)" stroke-width="7"/>
-      <path d="M390 145 Q390 165 390 200" fill="none" stroke="url(#mbg)" stroke-width="7"/>
-      <!-- Headlight glow -->
-      <ellipse cx="385" cy="130" rx="35" ry="55" fill="url(#headGrad)" opacity="0.2">
-        <animate attributeName="opacity" values="0.15;0.35;0.15" dur="2s" repeatCount="indefinite"/>
-      </ellipse>
-      <defs>
-        <radialGradient id="headGrad">
-          <stop offset="0%" stop-color="#FFD700"/>
-          <stop offset="100%" stop-color="transparent"/>
-        </radialGradient>
-      </defs>
-    </svg>
-  </div>
-
-  <div style="position:relative;z-index:5;padding:0 20px;">
-    <div style="background:rgba(8,12,18,0.6);backdrop-filter:blur(14px);
-      border:1px solid rgba(201,168,76,0.18);border-radius:16px;
-      padding:36px 36px;max-width:720px;margin:0 auto 28px;">
-      <span class="hero-badge">Auto Parts & Accessories</span>
-      <h1 class="hero-title">KARTHIKA<br>TWO WHEELERS</h1>
-      <p class="hero-sub">
-        Your trusted partner for Engine Oils, Brake Parts, Tires, Chains, Helmets, Filters & Accessories.<br>
-        Genuine parts for Hero, Honda, TVS & Royal Enfield. Premium lubricants from Castrol & Motul.
-      </p>
-      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;">
-        <a href="#products" class="hero-cta"><i class="fas fa-th-large"></i> Explore Products</a>
-        <a href="tel:7358990541" class="hero-cta" style="background:transparent;color:var(--gold);border:2px solid var(--gold);box-shadow:none;">
-          <i class="fas fa-phone"></i> Call Now
-        </a>
+  <!-- Hero Vel Decorations with floating animation -->
+  <img class="hero-vel-left" src="assets/vector-illustration-lord-murugan-spear-transparent-background_181203-35133-removebg-preview.png" alt="Vel" style="position:absolute;left:3%;top:50%;transform:translateY(-50%);width:90px;opacity:0.5;animation:floatVel 3s ease-in-out infinite;" onerror="this.style.display='none'">
+  <img class="hero-vel-right" src="assets/vector-illustration-lord-murugan-spear-transparent-background_181203-35133-removebg-preview.png" alt="Vel" style="position:absolute;right:3%;top:50%;transform:translateY(-50%) scaleX(-1);width:90px;opacity:0.5;animation:floatVel 3s ease-in-out infinite reverse;" onerror="this.style.display='none'">
+  <div class="hero-content">
+    <span class="hero-badge">Auto Parts & Accessories</span>
+    <h1 class="hero-title">KARTHIKA<br><span>TWO WHEELERS</span></h1>
+    <p class="hero-sub">
+      Your trusted partner for Engine Oils, Brake Parts, Tires, Chains, Helmets, Filters & Accessories.
+      Genuine parts for Hero, Honda, TVS & Royal Enfield. Premium lubricants from Castrol, Motul & GEN1.
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">5+</span>
+        <span class="hero-stat-label">Years</span>
       </div>
-      <div style="display:flex;gap:40px;justify-content:center;flex-wrap:wrap;">
-        <div style="text-align:center;">
-          <div style="font-family:'Cinzel Decorative',serif;font-size:2rem;color:var(--gold);font-weight:700;">10+</div>
-          <div style="font-size:0.65rem;letter-spacing:0.25em;color:var(--white);text-transform:uppercase;opacity:0.8;">Years</div>
-        </div>
-        <div style="text-align:center;">
-          <div style="font-family:'Cinzel Decorative',serif;font-size:2rem;color:var(--gold);font-weight:700;">5000+</div>
-          <div style="font-size:0.65rem;letter-spacing:0.25em;color:var(--white);text-transform:uppercase;opacity:0.8;">Happy Customers</div>
-        </div>
-        <div style="text-align:center;">
-          <div style="font-family:'Cinzel Decorative',serif;font-size:2rem;color:var(--gold);font-weight:700;">8+</div>
-          <div style="font-size:0.65rem;letter-spacing:0.25em;color:var(--white);text-transform:uppercase;opacity:0.8;">Top Brands</div>
-        </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">5000+</span>
+        <span class="hero-stat-label">Customers</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">8+</span>
+        <span class="hero-stat-label">Brands</span>
       </div>
     </div>
-    <a href="#about" style="display:inline-block;margin-top:20px;z-index:5;position:relative;color:var(--gold);text-decoration:none;animation:bounce 2s infinite;">
-      <i class="fas fa-chevron-down" style="font-size:1.5rem;opacity:0.7;"></i>
-    </a>
+    <div class="hero-btns">
+      <a href="#products" class="hero-btn hero-btn-primary">
+        <i class="fas fa-th-large"></i> Explore Products
+      </a>
+      <a href="tel:7358990541, 9629336281" class="hero-btn hero-btn-secondary">
+        <i class="fas fa-phone"></i> Call Now
+      </a>
+    </div>
   </div>
-  <style>
-    @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(10px);}}
-  </style>
+  <img class="hero-img" src="./assets/im3.jpg" alt="Motorcycle">
 </section>
 
 <!-- ABOUT -->
-<section id="about" style="background:var(--bg2);">
-  <div class="sec-inner">
-    <div style="text-align:center;margin-bottom:50px;">
-      <span class="sec-label reveal">About Us</span>
-      <h2 class="sec-title reveal">Welcome to<br>KARTHIKA TWO WHEELERS</h2>
-      <p class="sec-desc reveal">Serving two-wheeler enthusiasts with genuine parts, premium lubricants and expert guidance for over a decade.</p>
-      <div class="gold-rule reveal"></div>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;" class="reveal">
-      <div>
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop"
-             alt="Karthika Two Wheelers Shop" style="width:100%;border-radius:10px;
-             border:1px solid var(--border);">
+<section id="about">
+  <div class="sec-inner" style="max-width:1000px;margin:0 auto;">
+    <div class="about-grid">
+      <div class="about-img">
+        <img src="./assets/img4.jpg" alt="Karthika Two Wheelers Shop">
       </div>
       <div>
-        <h3 style="font-family:'Cinzel',serif;font-size:1.3rem;color:var(--gold-lt);margin-bottom:16px;letter-spacing:0.08em;">
-          Your Trusted Two-Wheeler Partner
-        </h3>
-        <p style="color:var(--muted);line-height:1.9;margin-bottom:16px;font-size:0.92rem;">
-          At Karthika Two Wheelers, we've been proudly serving our valued customers with premium auto parts, accessories, and engine oils for over a decade. Our commitment to quality and customer satisfaction has made us the preferred choice for bike enthusiasts across Tamil Nadu.
-        </p>
-        <p style="color:var(--muted);line-height:1.9;margin-bottom:24px;font-size:0.92rem;">
-          We stock genuine parts for Hero, Honda, TVS, and Royal Enfield motorcycles, along with premium lubricants from Castrol and Motul. Our experienced team is always ready to help you find the right parts for your vehicle.
-        </p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-          <div style="display:flex;align-items:center;gap:8px;color:var(--muted);font-size:0.85rem;">
-            <i class="fas fa-check-circle" style="color:var(--gold);"></i> 100% Genuine Parts
+        <span class="sec-label reveal">About Us</span>
+        <h2 class="sec-title reveal">Your Trusted Two-Wheeler Partner</h2>
+        <p style="color:var(--text-light);margin-bottom:20px;line-height:1.8;">At Karthika Two Wheelers, we've been proudly serving our valued customers with premium auto parts, accessories, and engine oils for over a decade. Our commitment to quality and customer satisfaction has made us the preferred choice for bike enthusiasts.</p>
+        <p style="color:var(--text-light);margin-bottom:24px;line-height:1.8;">We stock genuine parts for Hero, Honda, TVS, and Royal Enfield motorcycles, along with premium lubricants from Castrol and Motul. Our experienced team is always ready to help you find the right parts.</p>
+        <div class="about-features">
+          <div class="about-feature">
+            <i class="fas fa-check-circle"></i>
+            <span>100% Genuine Parts</span>
           </div>
-          <div style="display:flex;align-items:center;gap:8px;color:var(--muted);font-size:0.85rem;">
-            <i class="fas fa-check-circle" style="color:var(--gold);"></i> Expert Guidance
+          <div class="about-feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Expert Guidance</span>
           </div>
-          <div style="display:flex;align-items:center;gap:8px;color:var(--muted);font-size:0.85rem;">
-            <i class="fas fa-check-circle" style="color:var(--gold);"></i> Best Prices
+          <div class="about-feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Best Prices</span>
           </div>
-          <div style="display:flex;align-items:center;gap:8px;color:var(--muted);font-size:0.85rem;">
-            <i class="fas fa-check-circle" style="color:var(--gold);"></i> Wide Selection
+          <div class="about-feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Wide Selection</span>
           </div>
         </div>
       </div>
@@ -661,56 +445,43 @@ function googleTranslateElementInit() {
 </section>
 
 <!-- BRANDS -->
-<section id="brands" style="background:var(--bg);">
-  <div class="sec-inner">
-    <div style="text-align:center;margin-bottom:50px;">
+<section id="brands">
+  <div class="sec-inner" style="max-width:1000px;margin:0 auto;">
+    <div class="sec-header">
       <span class="sec-label reveal">Authorized & Trusted</span>
-      <h2 class="sec-title reveal">Our Brand<br>Collaborations</h2>
-      <p class="sec-desc reveal">Official dealer for leading two-wheeler brands and premium lubricants</p>
-      <div class="gold-rule reveal"></div>
+      <h2 class="sec-title reveal">Our Brand Collaborations</h2>
+      <p class="sec-desc">Official dealer for leading two-wheeler brands and premium lubricants</p>
     </div>
-    <div class="brands-grid reveal">
+    <div class="brands-grid">
       <div class="brand-card">
-        <img src="https://www.heromotocorp.com/content/dam/hero-aem-website/brand/logo/logo.svg" alt="Hero">
         <h4>HERO</h4>
         <p>Authorized Parts</p>
       </div>
       <div class="brand-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Honda_logo.svg" alt="Honda" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';this.nextElementSibling.style.height='45px';this.nextElementSibling.style.alignItems='center';this.nextElementSibling.style.justifyContent='center';this.nextElementSibling.style.fontSize='1.2rem';this.nextElementSibling.style.color='var(--gold-lt)';">
-        <div style="display:none;font-family:'Cinzel',serif;color:var(--gold-lt);">HONDA</div>
         <h4>HONDA</h4>
         <p>Authorized Parts</p>
       </div>
       <div class="brand-card">
-        <img src="https://www.tvsmotor.com/-/media/Feature/Header/TVSLogo-hr.svg" alt="TVS">
         <h4>TVS</h4>
         <p>Authorized Parts</p>
       </div>
       <div class="brand-card">
-        <img src="https://www.royalenfield.com/content/dam/royal-enfield/mexico/logos/logo.svg" alt="Royal Enfield">
         <h4>ROYAL ENFIELD</h4>
         <p>Genuine Parts</p>
       </div>
       <div class="brand-card">
-        <img src="https://www.castrol.com/apps/settings/wcm/designs/refresh/castrol/images/reignite/logo.svg" alt="Castrol">
         <h4>CASTROL</h4>
         <p>Authorized Lubricants</p>
       </div>
       <div class="brand-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Motul_logo.svg" alt="Motul" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <div style="display:none;font-family:'Cinzel',serif;color:var(--gold-lt);">MOTUL</div>
         <h4>MOTUL</h4>
         <p>Premium Lubricants</p>
       </div>
       <div class="brand-card">
-        <img src="https://www.ceat.com/content/dam/ceat/website/logo.png" alt="CEAT" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <div style="display:none;font-family:'Cinzel',serif;color:var(--gold-lt);">CEAT</div>
         <h4>CEAT</h4>
         <p>Tyres & Tubes</p>
       </div>
       <div class="brand-card">
-        <img src="https://www.mrftyres.com/images/mrf-logo.png" alt="MRF" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <div style="display:none;font-family:'Cinzel',serif;color:var(--gold-lt);">MRF</div>
         <h4>MRF</h4>
         <p>Quality Tyres</p>
       </div>
@@ -719,115 +490,144 @@ function googleTranslateElementInit() {
 </section>
 
 <!-- PRODUCTS -->
-<section id="products" style="background:var(--bg2);">
-  <div class="sec-inner">
-    <div style="text-align:center;margin-bottom:50px;">
+<section id="products">
+  <div class="sec-inner" style="max-width:1000px;margin:0 auto;">
+    <div class="sec-header">
       <span class="sec-label reveal">Our Range</span>
       <h2 class="sec-title reveal">Our Products</h2>
-      <p class="sec-desc reveal">Complete range of two-wheeler parts, oils and accessories for all major brands</p>
-      <div class="gold-rule reveal"></div>
+      <p class="sec-desc">Complete range of two-wheeler parts, oils and accessories for all major brands</p>
     </div>
     <div class="products-grid">
       <div class="product-card reveal">
         <div class="product-img">
-          <img src="https://images.unsplash.com/photo-1635784063388-1ff609e44c75?w=400&h=250&fit=crop" alt="Engine Oil">
+          <img src="assets/castrol-engine-oill.png" alt="Engine Oil" style="width:100%;height:100%;object-fit:contain;">
         </div>
         <div class="product-body">
           <h3>ENGINE OIL</h3>
           <p>Premium engine oils including Castrol, Motul and trusted brands for optimal engine performance</p>
           <div class="product-price">₹350 - ₹2,500</div>
-          <a href="https://wa.me/917358990541?text=Hi%2C%20I%20need%20Engine%20Oil" class="product-btn" target="_blank">
+          <a href="https://wa.me/919629336281, 9629336281?text=Hi%2C%20I%20need%20Engine%20Oil" class="product-btn" target="_blank">
             <i class="fab fa-whatsapp"></i> Enquire Now
           </a>
         </div>
       </div>
       <div class="product-card reveal">
         <div class="product-img">
-          <img src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=400&h=250&fit=crop" alt="Brake Parts">
+          <img src="assets/brak-shoe.png" alt="Brake Parts" style="width:100%;height:100%;object-fit:contain;">
         </div>
         <div class="product-body">
           <h3>BRAKE PARTS</h3>
           <p>High-quality brake shoes, brake pads and components for safe riding</p>
           <div class="product-price">₹250 - ₹1,800</div>
-          <a href="https://wa.me/917358990541?text=Hi%2C%20I%20need%20Brake%20Parts" class="product-btn" target="_blank">
+          <a href="https://wa.me/919629336281, 9629336281?text=Hi%2C%20I%20need%20Brake%20Parts" class="product-btn" target="_blank">
             <i class="fab fa-whatsapp"></i> Enquire Now
           </a>
         </div>
       </div>
       <div class="product-card reveal">
         <div class="product-img">
-          <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=250&fit=crop" alt="Tires">
+          <img src="assets/bike-light-img.png" alt="LED Lights" style="width:100%;height:100%;object-fit:contain;">
         </div>
         <div class="product-body">
-          <h3>TIRES & TUBES</h3>
-          <p>Durable tires and tubes from top brands for all two-wheeler models</p>
-          <div class="product-price">₹800 - ₹4,500</div>
-          <a href="https://wa.me/917358990541?text=Hi%2C%20I%20need%20Tires%20and%20Tubes" class="product-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i> Enquire Now
-          </a>
-        </div>
-      </div>
-      <div class="product-card reveal">
-        <div class="product-img">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=250&fit=crop" alt="Chains">
-        </div>
-        <div class="product-body">
-          <h3>CHAINS & SPROCKETS</h3>
-          <p>Genuine chain kits and sprockets for smooth power transmission</p>
-          <div class="product-price">₹600 - ₹2,200</div>
-          <a href="https://wa.me/917358990541?text=Hi%2C%20I%20need%20Chains%20and%20Sprockets" class="product-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i> Enquire Now
-          </a>
-        </div>
-      </div>
-      <div class="product-card reveal">
-        <div class="product-img">
-          <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=250&fit=crop" alt="Helmets">
-        </div>
-        <div class="product-body">
-          <h3>HELMETS</h3>
-          <p>ISI certified helmets in various designs — full face, half face & open face</p>
-          <div class="product-price">₹800 - ₹5,000</div>
-          <a href="https://wa.me/917358990541?text=Hi%2C%20I%20need%20Helmets" class="product-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i> Enquire Now
-          </a>
-        </div>
-      </div>
-      <div class="product-card reveal">
-        <div class="product-img">
-          <img src="https://images.unsplash.com/photo-1558618047-f4b511cc0a08?w=400&h=250&fit=crop" alt="Lights">
-        </div>
-        <div class="product-body">
-          <h3>LIGHTS & ELECTRICAL</h3>
+          <h3>LED LIGHTS & HEADLIGHTS</h3>
           <p>Headlights, taillights, indicators, switches and electrical components</p>
           <div class="product-price">₹150 - ₹2,000</div>
-          <a href="https://wa.me/917358990541?text=Hi%2C%20I%20need%20Lights%20and%20Electrical%20parts" class="product-btn" target="_blank">
+          <a href="https://wa.me/919629336281, 9629336281?text=Hi%2C%20I%20need%20Lights%20and%20Electrical%20parts" class="product-btn" target="_blank">
             <i class="fab fa-whatsapp"></i> Enquire Now
           </a>
         </div>
       </div>
       <div class="product-card reveal">
         <div class="product-img">
-          <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&h=250&fit=crop" alt="Filters">
+          <img src="assets/bike-air-filere.png" alt="Filters" style="width:100%;height:100%;object-fit:contain;">
         </div>
         <div class="product-body">
           <h3>FILTERS</h3>
           <p>Air filters, oil filters and fuel filters for clean engine operation</p>
           <div class="product-price">₹120 - ₹800</div>
-          <a href="https://wa.me/917358990541?text=Hi%2C%20I%20need%20Filters" class="product-btn" target="_blank">
+          <a href="https://wa.me/919629336281, 9629336281?text=Hi%2C%20I%20need%20Filters" class="product-btn" target="_blank">
             <i class="fab fa-whatsapp"></i> Enquire Now
           </a>
         </div>
       </div>
       <div class="product-card reveal">
         <div class="product-img">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=250&fit=crop" alt="Accessories">
+          <img src="assets/Accesory.png" alt="Accessories" style="width:100%;height:100%;object-fit:contain;">
         </div>
         <div class="product-body">
           <h3>ACCESSORIES</h3>
           <p>Guards, mirrors, seat covers, grips and premium bike accessories</p>
           <div class="product-price">₹200 - ₹3,500</div>
-          <a href="https://wa.me/917358990541?text=Hi%2C%20I%20need%20Accessories" class="product-btn" target="_blank">
+          <a href="https://wa.me/919629336281, 9629336281?text=Hi%2C%20I%20need%20Accessories" class="product-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Enquire Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GEN1 PRODUCTS -->
+<section id="gen1products">
+  <div class="sec-inner" style="max-width:1000px;margin:0 auto;">
+    <div class="sec-header">
+      <span class="sec-label reveal">Car Care Products</span>
+      <h2 class="sec-title reveal">PREMIUM <span style="color:var(--primary);">POLISHES</span></h2>
+      <p class="sec-desc">Quality bike and car care products for that perfect shine</p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card reveal">
+        <div class="product-img">
+          <img src="https://gen1lubricants.com/img/gen1Shiner.png" alt="Bike Shiner" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <i class="fas fa-sparkles"></i>
+        </div>
+        <div class="product-body">
+          <h3>BIKE & CAR SHINER</h3>
+          <p>UV protection, durable protection with high gloss shine and finish</p>
+          <div class="product-price">₹150 - ₹300</div>
+          <a href="https://wa.me/919629336281, 9629336281?text=Hi%2C%20I%20need%20Bike%20and%20Car%20Shiner" class="product-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Enquire Now
+          </a>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-img">
+          <img src="https://gen1lubricants.com/img/gen1DashBoardPolish.png" alt="Dashboard Polish" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <i class="fas fa-wind"></i>
+        </div>
+        <div class="product-body">
+          <h3>DASHBOARD & TYRE POLISH</h3>
+          <p>All-in-one application, usable at dashboard, leather and tyre</p>
+          <div class="product-price">₹250</div>
+          <a href="https://wa.me/919629336281, 9629336281?text=Hi%2C%20I%20need%20Dashboard%20and%20Tyre%20Polish" class="product-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Enquire Now
+          </a>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-img">
+          <img src="https://gen1lubricants.com/img/gen1Sponge.jpg" alt="Instant Sponge" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <i class="fas fa-cloud"></i>
+        </div>
+        <div class="product-body">
+          <h3>INSTANT CHAIN SPONGE</h3>
+          <p>High gloss and instant shine, usable on plastic, rubber, fibre, vinyl</p>
+          <div class="product-price">₹100</div>
+          <a href="https://wa.me/919629336281, 9629336281?text=Hi%2C%20I%20need%20Instant%20Chain%20Sponge" class="product-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Enquire Now
+          </a>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-img">
+          <img src="https://gen1lubricants.com/img/gen1Cloth.png" alt="Microfiber Cloth" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <i class="fas fa-cloth"></i>
+        </div>
+        <div class="product-body">
+          <h3>MICROFIBER CLOTH</h3>
+          <p>(SIZE: 40x40) 350GSM, attracts dust, non-linting, quick absorbent</p>
+          <div class="product-price">₹80</div>
+          <a href="https://wa.me/919629336281, 9629336281?text=Hi%2C%20I%20need%20Microfiber%20Cloth" class="product-btn" target="_blank">
             <i class="fab fa-whatsapp"></i> Enquire Now
           </a>
         </div>
@@ -837,13 +637,12 @@ function googleTranslateElementInit() {
 </section>
 
 <!-- SERVICES -->
-<section id="services" style="background:var(--bg);">
-  <div class="sec-inner">
-    <div style="text-align:center;margin-bottom:50px;">
+<section id="services">
+  <div class="sec-inner" style="max-width:1000px;margin:0 auto;">
+    <div class="sec-header">
       <span class="sec-label reveal">What We Offer</span>
       <h2 class="sec-title reveal">Our Services</h2>
-      <p class="sec-desc reveal">Beyond parts — comprehensive two-wheeler services for your convenience</p>
-      <div class="gold-rule reveal"></div>
+      <p class="sec-desc">Beyond parts — comprehensive two-wheeler services for your convenience</p>
     </div>
     <div class="services-grid">
       <div class="service-card reveal">
@@ -879,134 +678,236 @@ function googleTranslateElementInit() {
 </section>
 
 <!-- GALLERY -->
-<section id="gallery" style="background:var(--bg2);">
-  <div class="sec-inner">
-    <div style="text-align:center;margin-bottom:50px;">
+<section id="gallery">
+  <div class="sec-inner" style="max-width:1000px;margin:0 auto;">
+    <div class="sec-header">
       <span class="sec-label reveal">Shop & Products</span>
       <h2 class="sec-title reveal">Gallery</h2>
-      <p class="sec-desc reveal">Take a look inside Karthika Two Wheelers</p>
-      <div class="gold-rule reveal"></div>
+      <p class="sec-desc">Take a look inside Karthika Two Wheelers</p>
     </div>
-    <div class="gallery-grid reveal">
+    <div class="gallery-grid">
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" alt="Shop Interior">
+        <img src="assets/img1.jpg" alt="Shop Image 1">
         <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1635784063388-1ff609e44c75?w=400&h=300&fit=crop" alt="Engine Oils">
+        <img src="assets/img2.jpg" alt="Shop Image 2">
         <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=300&fit=crop" alt="Helmet Collection">
+        <img src="assets/im3.jpg" alt="Shop Image 3">
         <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=400&h=300&fit=crop" alt="Brake Parts">
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=300&fit=crop" alt="Tires">
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&h=300&fit=crop" alt="Workshop">
+        <img src="assets/img4.jpg" alt="Shop Image 4">
         <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ENQUIRY -->
-<section id="enquiry" style="background:var(--bg);">
-  <div class="sec-inner">
-    <div style="text-align:center;margin-bottom:50px;">
-      <span class="sec-label reveal">Get In Touch</span>
-      <h2 class="sec-title reveal">Product Enquiry</h2>
-      <p class="sec-desc reveal">Send us your requirements and we'll get back to you via WhatsApp</p>
-      <div class="gold-rule reveal"></div>
+<!-- PRODUCT FINDER -->
+<section id="finder">
+  <div class="sec-inner" style="max-width:1000px;margin:0 auto;">
+    <div class="sec-header">
+      <span class="sec-label reveal">Find Your Product</span>
+      <h2 class="sec-title reveal">Product <span style="color:var(--primary);">Finder</span></h2>
+      <p class="sec-desc">Select category, brand and grade to find the right product for your bike</p>
     </div>
-    <form class="enquiry-form reveal" id="enquiryForm">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-        <div class="form-group">
-          <label for="name">Your Name *</label>
-          <input type="text" id="name" placeholder="Enter your name" required>
+    <div class="product-finder reveal">
+      <div class="finder-row">
+        <div class="finder-group">
+          <label><i class="fas fa-th-large"></i> Category</label>
+          <select id="finderCategory">
+            <option value="">Select Category</option>
+            <option value="engine-oil">Engine Oil</option>
+            <option value="brake-parts">Brake Parts</option>
+            <option value="tubes">Tubes</option>
+            <option value="tires">Tires</option>
+            <option value="chains">Chains & Sprockets</option>
+            <option value="filters">Filters</option>
+            <option value="mirrors">Mirrors</option>
+            <option value="helmets">Helmets</option>
+            <option value="lights">Lights & Electrical</option>
+            <option value="accessories">Accessories</option>
+          </select>
         </div>
-        <div class="form-group">
-          <label for="phone">Phone Number *</label>
-          <input type="tel" id="phone" placeholder="Enter your phone number" required>
+        <div class="finder-group">
+          <label><i class="fas fa-tag"></i> Brand</label>
+          <select id="finderBrand" disabled>
+            <option value="">Select Brand</option>
+          </select>
+        </div>
+        <div class="finder-group">
+          <label><i class="fas fa-layer-group"></i> Grade/Model</label>
+          <select id="finderGrade" disabled>
+            <option value="">Select Grade</option>
+          </select>
         </div>
       </div>
-      <div class="form-group">
-        <label for="product">Product Category</label>
-        <select id="product">
-          <option value="">Select a product category</option>
-          <option value="Engine Oil">Engine Oil</option>
-          <option value="Brake Parts">Brake Parts</option>
-          <option value="Tires & Tubes">Tires &amp; Tubes</option>
-          <option value="Chains & Sprockets">Chains &amp; Sprockets</option>
-          <option value="Helmets">Helmets</option>
-          <option value="Lights & Electrical">Lights &amp; Electrical</option>
-          <option value="Filters">Filters</option>
-          <option value="Accessories">Accessories</option>
-          <option value="Other">Other</option>
-        </select>
+      <div class="finder-result" id="finderResult" style="display:none;">
+        <h4 id="resultTitle">Select your product above</h4>
+        <p id="resultDesc">We'll suggest the best product for your vehicle</p>
       </div>
-      <div class="form-group">
-        <label for="message">Your Requirement</label>
-        <textarea id="message" placeholder="Describe what you need — bike model, parts name, quantity..."></textarea>
-      </div>
-      <button type="submit" class="submit-btn">
-        <i class="fab fa-whatsapp"></i> Send via WhatsApp
-      </button>
-    </form>
+      <a href="#" class="enquire-finder-btn" id="finderEnquireBtn" style="display:none;" onclick="return false;">
+        <i class="fab fa-whatsapp"></i> Enquire via WhatsApp
+      </a>
+    </div>
   </div>
 </section>
+
+<script>
+const productData = {
+  "engine-oil": {
+    "Castrol": ["Castrol Power 1 20W40", "Castrol Active 20W40", "Castrol GTX 20W40", "Castrol Power 1 10W30", "Castrol Power 1 10W40"],
+    "Servo": ["Servo 20W40", "Servo 10W30", "Servo 15W50", "Servo Gold 20W40"],
+    "Hi-Power": ["Hi-Power 20W40", "Hi-Power 10W30", "Hi-Power 15W50", "Hi-Power Gold 20W40"],
+    "Moto Gold": ["Moto Gold 20W40", "Moto Gold 10W30", "Moto Gold 10W40", "Moto Gold Plus 20W40"]
+  },
+  "brake-parts": {
+    "Bosch": ["Bosch Brake Shoes", "Bosch Brake Pads", "Bosch Disc Pad"],
+    "Hercules": ["Hercules Brake Shoes", "Hercules Brake Pads"],
+    "Askam": ["Askam Brake Shoes"],
+    "Genuine": ["Hero Brake Shoes", "Honda Brake Shoes", "TVS Brake Shoes", "RE Brake Shoes"]
+  },
+  "tubes": {
+    "TVS": ["TVS Tube 2.50-17", "TVS Tube 2.75-17", "TVS Tube 3.00-17", "TVS Tube 3.50-17", "TVS Tube 90/100-17", "TVS Tube 100/80-17", "TVS Tube 110/70-17"],
+    "MRF": ["MRF Tube 2.50-17", "MRF Tube 2.75-17", "MRF Tube 3.00-17", "MRF Tube 90/100-17"]
+  },
+  "tires": {
+    "TVS Euro Grip": ["TVS Euro Grip 2.50-17", "TVS Euro Grip 2.75-17", "TVS Euro Grip 90/100-17", "TVS Euro Grip 100/80-17", "TVS Euro Grip 110/70-17"],
+    "MRF": ["MRF Zapper 100/80-17", "MRF Revolt 110/70-17", "MRF Mogrip 90/100-17", "MRF Steel 2.50-17"],
+    "CEAT": ["CEAT Grip 2.50-17", "CEAT Grip 2.75-17", "CEAT Zoom 90/100-17", "CEAT Runner 100/80-17", "CEAT Milaze 110/70-17"]
+  },
+  "chains": {
+    "RK": ["RK Gold Chain 428", "RK Gold Chain 520", "RK XW Chain 428", "RK XW Chain 520", "RK T Wing 428"],
+    "IMA": ["IMA 428", "IMA 520", "IMA 525"],
+    "DID": ["DID 428", "DID 520", "DID 525", "DID Gold 428", "DID Gold 520"],
+    "Tsubaki": ["Tsubaki 428", "Tsubaki 520", "Tsubaki 525"]
+  },
+  "filters": {
+    "Humming Bird Motors": ["Air Filter", "Oil Filter", "Fuel Filter", "Air Filter OEM", "Oil Filter OEM"],
+    "Bosch": ["Bosch Air Filter", "Bosch Oil Filter", "Bosch Fuel Filter"],
+    "Toyo": ["Toyo Air Filter", "Toyo Oil Filter"],
+    "Genuine": ["Hero Air Filter", "Honda Air Filter", "TVS Air Filter", "RE Air Filter"]
+  },
+  "helmets": {
+    "Studds": ["Studds Ninja", "Studds D-klasse", "Studds Brigadier", "Studds Storm"],
+    "Vega": ["Vega Edge", "Vega Crystal", "Vega Airstorm", "Vega Cruiser"],
+    "Ajp": ["Ajp Fighter", "Ajp Cruiser", "Ajp Street"],
+    "Royal Enfield": ["RE Helmet", "RE Duffle Bag", "RE Tank Bag"]
+  },
+  "lights": {
+    "Generic LED": ["LED Headlight", "LED Tail Light", "LED Indicator", "LED Fog Light", "LED Bar Light"],
+    "Bosch": ["Headlight", "Tail Light", "Indicator", "Stator"],
+    "Auto": ["Stator", "Rectifier", "CDI Box", "Ignition Coil", "Spark Plug"],
+    "SUPRAJIT": ["Mirror LED", "Mirror Bulb", "Headlight LED", "Tail Light LED", "Indicator LED"]
+  },
+  "mirrors": {
+    "SUPRAJIT": ["SUPRAJIT Mirror", "SUPRAJIT Mirror LED", "SUPRAJIT Mirror Set", "Side Mirror", "Rear View Mirror"]
+  },
+  "accessories": {
+    "Third Party": ["Mirror Set", "Guard Set", "Seat Cover", "Grips", "Foot Pegs", "Levers", "Saree Guard", "Leg Guard", "Tank Pad", "Body Cover", "Chain Cover", "Number Plate"],
+    "Hero": ["Hero Mirror", "Hero Guard", "Hero Seat Cover"],
+    "Honda": ["Honda Mirror", "Honda Guard", "Honda Seat Cover"],
+    "TVS": ["TVS Mirror", "TVS Guard", "TVS Seat Cover"],
+    "Royal Enfield": ["RE Mirror", "RE Guard", "RE Seat Cover", "RE Saddlebag"]
+  }
+};
+
+const finderCat = document.getElementById('finderCategory');
+const finderBrand = document.getElementById('finderBrand');
+const finderGrade = document.getElementById('finderGrade');
+const finderResult = document.getElementById('finderResult');
+const resultTitle = document.getElementById('resultTitle');
+const resultDesc = document.getElementById('resultDesc');
+const finderEnquireBtn = document.getElementById('finderEnquireBtn');
+
+finderCat.addEventListener('change', function() {
+  const cat = this.value;
+  finderBrand.innerHTML = '<option value="">Select Brand</option>';
+  finderGrade.innerHTML = '<option value="">Select Grade</option>';
+  finderResult.style.display = 'none';
+  finderEnquireBtn.style.display = 'none';
+  
+  if (cat && productData[cat]) {
+    const brands = Object.keys(productData[cat]).sort();
+    brands.forEach(function(brand) {
+      finderBrand.add(new Option(brand, brand));
+    });
+    finderBrand.disabled = false;
+    finderGrade.disabled = true;
+  } else {
+    finderBrand.disabled = true;
+  }
+});
+
+finderBrand.addEventListener('change', function() {
+  const cat = finderCat.value;
+  const brand = this.value;
+  finderGrade.innerHTML = '<option value="">Select Grade</option>';
+  finderResult.style.display = 'none';
+  finderEnquireBtn.style.display = 'none';
+  
+  if (cat && brand && productData[cat][brand]) {
+    productData[cat][brand].forEach(function(grade) {
+      finderGrade.add(new Option(grade, grade));
+    });
+    finderGrade.disabled = false;
+  } else {
+    finderGrade.disabled = true;
+  }
+});
+
+finderGrade.addEventListener('change', function() {
+  const grade = this.value;
+  if (grade) {
+    finderResult.style.display = 'block';
+    resultTitle.textContent = grade;
+    resultDesc.textContent = 'Available at Karthika Two Wheelers';
+    finderEnquireBtn.style.display = 'inline-flex';
+    finderEnquireBtn.href = 'https://wa.me/919629336281, 9629336281?text=Hi%2C%20I%20need%20' + encodeURIComponent(grade);
+  } else {
+    finderResult.style.display = 'none';
+    finderEnquireBtn.style.display = 'none';
+  }
+});
+</script>
 
 <!-- CONTACT -->
-<section id="contact" style="padding:90px 24px;">
-  <div class="sec-inner">
-    <div style="text-align:center;margin-bottom:50px;">
-      <span class="sec-label reveal">Reach Us</span>
-      <h2 class="sec-title reveal" style="color:var(--gold);">Contact Us</h2>
-      <p class="sec-desc reveal" style="color:var(--muted);">Get in touch for any queries or requirements</p>
-    </div>
-
-    <div class="contact-buttons reveal">
-      <a class="contact-btn call-btn" href="tel:7358990541">
-        <i class="fas fa-phone"></i> Call: 7358990541
+<section id="contact">
+  <div class="sec-inner" style="max-width:800px;margin:0 auto;text-align:center;">
+    <span class="sec-label reveal">Get In Touch</span>
+    <h2 class="sec-title reveal">Contact Us</h2>
+    
+    <div class="contact-buttons">
+      <a href="tel:7358990541, 9629336281" class="contact-btn call-btn">
+        <i class="fas fa-phone"></i> Call Now
       </a>
-      <a class="contact-btn call-btn" href="tel:9629336281">
-        <i class="fas fa-phone"></i> Call: 9629336281
-      </a>
-      <a class="contact-btn whatsapp-btn" href="https://wa.me/917358990541?text=Hi%20Karthika%20Two%20Wheelers%2C%20I%20need%20enquiry%20about%20your%20products" target="_blank">
-        <i class="fab fa-whatsapp"></i> WhatsApp Us
+      <a href="https://wa.me/919629336281, 9629336281?text=Hi%20Karthika%20Two%20Wheelers" class="contact-btn whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i> WhatsApp
       </a>
     </div>
-
-    <div style="text-align:center;">
-      <div class="business-hours reveal">
-        <h3><i class="far fa-clock"></i> Business Hours</h3>
-        <p>Daily: 9:00 AM - 8:00 PM</p>
-        <p class="note">Open All Days Including Sundays & Holidays</p>
+    
+    <div class="business-hours">
+      <h3><i class="fas fa-clock"></i> Business Hours</h3>
+      <p>All Days: 8:00 AM - 8:00 PM</p>
+      <p class="note">Open Every Day</p>
+    </div>
+    
+    <div class="address-row">
+      <div class="address-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Thayamangalam Road, Manamadurai, Sivagangai District, 630606</span>
       </div>
-
-      <div class="address-row reveal">
-        <div class="address-item">
-          <i class="fas fa-map-marker-alt"></i>
-          <span>Visit:</span>
-          <a href="https://maps.app.goo.gl/vWrLBr8xaF5m316r9" target="_blank">
-            View on Google Maps <i class="fas fa-external-link-alt" style="font-size:0.7rem;"></i>
-          </a>
-        </div>
+      <div class="address-item">
+        <i class="fas fa-phone"></i>
+        <a href="tel:7358990541, 9629336281">7358990541, 9629336281</a>
       </div>
-
-      <div class="map-container reveal">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15731.368107194812!2d78.4567155!3d9.6945209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b011da59fe4596f%3A0x43108b8bc756c0a4!2sKarthika%20two%20wheeler%20spare%20parts!5e0!3m2!1sen!2sin!4v1776064139727!5m2!1sen!2sin"
-          width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade" title="Karthika Two Wheelers Location">
-        </iframe>
-      </div>
+    </div>
+    
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15731.368107194812!2d78.4567155!3d9.6945209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b011da59fe4596f%3A0x43108b8bc756c0a4!2sKarthika%20two%20wheeler%20spare%20parts!5e0!3m2!1sen!2sin!4v1776698156391!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>
@@ -1016,116 +917,73 @@ function googleTranslateElementInit() {
   <div class="footer-grid">
     <div class="footer-col">
       <h3>KARTHIKA TWO WHEELERS</h3>
-      <p>Your trusted partner for premium two-wheeler parts, accessories, and engine oils in Tamil Nadu. Quality products, best prices, and genuine parts for Hero, Honda, TVS, and Royal Enfield.</p>
-      <div class="footer-social">
-        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-      </div>
+      <p>Your trusted partner for quality two-wheeler parts and accessories in Thayamangalam Road, Manamadurai, Sivagangai District, 630606.</p>
     </div>
     <div class="footer-col">
       <h3>Quick Links</h3>
       <ul>
-    <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About Us</a></li>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#products">Products</a></li>
-        <li><a href="#brands">Brands</a></li>
-        <li><a href="#services">Services</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h3>Products</h3>
       <ul>
-        <li><a href="#products">Engine Oil</a></li>
+        <li><a href="#products">Engine Oils</a></li>
         <li><a href="#products">Brake Parts</a></li>
-        <li><a href="#products">Tires & Tubes</a></li>
-        <li><a href="#products">Chains & Sprockets</a></li>
-        <li><a href="#products">Helmets</a></li>
         <li><a href="#products">Filters</a></li>
-        <li><a href="#products">Accessories</a></li>
+<li><a href="#gen1products">Polishes</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h3>Contact Info</h3>
+      <h3>Contact</h3>
       <div class="footer-contact">
         <div class="footer-contact-item">
           <i class="fas fa-phone"></i>
-          <a href="tel:7358990541">7358990541</a>
-        </div>
-        <div class="footer-contact-item">
-          <i class="fas fa-phone"></i>
-          <a href="tel:9629336281">9629336281</a>
+          <a href="tel:7358990541, 9629336281">7358990541, 9629336281</a>
         </div>
         <div class="footer-contact-item">
           <i class="fab fa-whatsapp"></i>
-          <a href="https://wa.me/917358990541" target="_blank">WhatsApp</a>
+          <a href="https://wa.me/919629336281, 9629336281">WhatsApp</a>
         </div>
         <div class="footer-contact-item">
           <i class="fas fa-map-marker-alt"></i>
-          <a href="https://maps.app.goo.gl/vWrLBr8xaF5m316r9" target="_blank">View on Maps</a>
-        </div>
-        <div class="footer-contact-item">
-          <i class="far fa-clock"></i>
-          <span>Daily: 9 AM - 8 PM</span>
+          <span>Thayamangalam Road, Manamadurai, Sivagangai District, 630606</span>
         </div>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 Karthika Two Wheelers. All Rights Reserved. | Auto Parts & Accessories</p>
+    <p>&copy; 2024 Karthika Two Wheelers. All rights reserved.</p>
   </div>
 </footer>
 
 <script>
-/* Scroll Progress Bar */
-window.addEventListener('scroll', () => {
-  const scrolled = window.scrollY;
-  const height = document.documentElement.scrollHeight - window.innerHeight;
-  const pct = height > 0 ? (scrolled / height) * 100 : 0;
-  document.getElementById('progress-bar').style.width = pct + '%';
-});
-
-/* Hero Particles */
-(function() {
-  var c = document.getElementById('prtcls');
-  for (var i = 0; i < 18; i++) {
-    var p = document.createElement('div');
-    p.className = 'particle';
-    var s = 2 + Math.random() * 3;
-    p.style.cssText = 'width:' + s + 'px;height:' + s + 'px;left:' + Math.random() * 100 + '%;animation-duration:' + (8 + Math.random() * 12) + 's;animation-delay:' + Math.random() * 10 + 's;opacity:' + (0.3 + Math.random() * 0.5) + ';';
-    c.appendChild(p);
-  }
-})();
-
-/* Scroll Reveal */
-var ro = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('on'); });
-}, {threshold: 0.02});
-document.querySelectorAll('.reveal').forEach(function(el) { ro.observe(el); });
-
-/* Floating Icons on Scroll */
-var floatIcons = document.querySelectorAll('.float-icon');
+// Progress bar
 window.addEventListener('scroll', function() {
-  var sy = window.scrollY;
-  floatIcons.forEach(function(icon, i) {
-    var baseTop = 80 + i * 120;
-    var currentTop = baseTop + sy * 0.15;
-    icon.style.top = currentTop + 'px';
-    icon.style.opacity = sy > 150 ? '0.5' : '0';
-  });
-}, {passive: true});
-
-/* Enquiry Form WhatsApp */
-document.getElementById('enquiryForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  var name = document.getElementById('name').value || '';
-  var phone = document.getElementById('phone').value || '';
-  var product = document.getElementById('product').value || 'General Enquiry';
-  var message = document.getElementById('message').value || 'No message';
-  var msg = 'Hi Karthika Two Wheelers!%0A%0A*Enquiry Details:*%0A👤 Name: ' + name + '%0A📱 Phone: ' + phone + '%0A📦 Product: ' + product + '%0A💬 Message: ' + message;
-  window.open('https://wa.me/917358990541?text=' + msg, '_blank');
+  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById('progress-bar').style.width = scrolled + '%';
 });
+
+// Reveal on scroll
+const revealElements = document.querySelectorAll('.reveal');
+function reveal() {
+  revealElements.forEach(function(el) {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+    const revealPoint = 100;
+    if (elementTop < windowHeight - revealPoint) {
+      el.classList.add('on');
+    }
+  });
+}
+window.addEventListener('scroll', reveal);
+reveal();
 </script>
+
 </body>
 </html>
